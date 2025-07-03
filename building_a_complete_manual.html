@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building_A Feature Class - Complete Attribute Reference Manual</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+        }
+        .field-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        .field-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2em;
+        }
+        .field-alias {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: 10px;
+        }
+        .field-type {
+            background-color: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .domain-description {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e8f5e8;
+            border-left: 3px solid #27ae60;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background-color: white;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f8ff;
+        }
+        .code {
+            font-family: 'Courier New', monospace;
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .range-info {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .no-domain {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #bdc3c7;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .toc-section {
+            margin-bottom: 20px;
+        }
+        .toc-section h4 {
+            color: #34495e;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+        }
+        .toc-list {
+            columns: 2;
+            column-gap: 30px;
+        }
+        .toc-list li {
+            margin-bottom: 5px;
+            break-inside: avoid;
+        }
+        .toc-list a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        .toc-list a:hover {
+            text-decoration: underline;
+        }
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 0.9em;
+        }
+        .large-domain-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .field-section {
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Building_A Feature Class - Complete Attribute Reference Manual</h1>
+        
+        <div class="summary-stats">
+            <div class="stat-card">
+                <div class="stat-number">85</div>
+                <div class="stat-label">Total Fields</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">32</div>
+                <div class="stat-label">Fields with Domains</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">53</div>
+                <div class="stat-label">Simple Fields</div>
+            </div>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            
+            <div class="toc-section">
+                <h4>Fields with Domain Constraints (32 fields)</h4>
+                <ul class="toc-list"><li><a href="#areaSizeUom">Area Size UOM (areaSizeUom)</a></li>
+<li><a href="#buildingCondition">Building Condition (buildingCondition)</a></li>
+<li><a href="#buildingConditionIndex">Building Condition Index (buildingConditionIndex)</a></li>
+<li><a href="#buildingCustodialType">Building Custodial Type (buildingCustodialType)</a></li>
+<li><a href="#buildingOpStatus">Building Op Status (buildingOpStatus)</a></li>
+<li><a href="#country">Country (country)</a></li>
+<li><a href="#dataCollection">Data Collection (dataCollection)</a></li>
+<li><a href="#elevationUom">Elevation Unit of Measure (elevationUom)</a></li>
+<li><a href="#facilityConditionCode">Facility Condition Code (facilityConditionCode)</a></li>
+<li><a href="#facilityGrossSqFtUom">Facility Gross Sq Ft UOM (facilityGrossSqFtUom)</a></li>
+<li><a href="#flexFieldYn">Flex Field Boolean (flexFieldYn)</a></li>
+<li><a href="#hasGiantVoice">Has Giant Voice (hasGiantVoice)</a></li>
+<li><a href="#hasMassNotificationDevice">has Mass Notification Device (hasMassNotificationDevice)</a></li>
+<li><a href="#heightMaxUom">Height Max Uom (heightMaxUom)</a></li>
+<li><a href="#installationId">Installation Identifier (installationId)</a></li>
+<li><a href="#installationName">Installation Name (installationName)</a></li>
+<li><a href="#isHeritageAsset">Is Heritage Asset (isHeritageAsset)</a></li>
+<li><a href="#isRealProperty">Is Real Property (isRealProperty)</a></li>
+<li><a href="#majorCommand">Major Command (majorCommand)</a></li>
+<li><a href="#missionDependencyIndex">Mission Dependency Index (missionDependencyIndex)</a></li>
+<li><a href="#owner">Owner (owner)</a></li>
+<li><a href="#perimeterSizeUom">Perimeter Size UOM (perimeterSizeUom)</a></li>
+<li><a href="#roadPostDirectional">Road Post Directional (roadPostDirectional)</a></li>
+<li><a href="#roadPrefixDirectional">Road Prefix Directional (roadPrefixDirectional)</a></li>
+<li><a href="#rpInterest">Real Property Interest (rpInterest)</a></li>
+<li><a href="#rpaConstructionType">RPA Construction Type (rpaConstructionType)</a></li>
+<li><a href="#rpaType">Real Property Asset Type (rpaType)</a></li>
+<li><a href="#rpsuid">Real Property Site Unique Identifier (rpsuid)</a></li>
+<li><a href="#siteId">Site ID (siteId)</a></li>
+<li><a href="#stateName">State or Territory Name (stateName)</a></li>
+<li><a href="#verticalDatumType">Vertical Datum Type (verticalDatumType)</a></li>
+<li><a href="#visitorMapName">Visitor Map Name (visitorMapName)</a></li>
+
+                </ul>
+            </div>
+            
+            <div class="toc-section">
+                <h4>Simple Fields (53 fields)</h4>
+                <ul class="toc-list"><li><a href="#OBJECTID">OBJECTID (OBJECTID)</a></li>
+<li><a href="#Shape">Shape (Shape)</a></li>
+<li><a href="#GlobalID">GlobalID (GlobalID)</a></li>
+<li><a href="#addressNumber">Address Number (addressNumber)</a></li>
+<li><a href="#addressNumberSuffix">Address Number Suffix (addressNumberSuffix)</a></li>
+<li><a href="#alternateBuildingNumber">Alternate Building Number (alternateBuildingNumber)</a></li>
+<li><a href="#alternateFeatureDescription">Alternate Feature Description (alternateFeatureDescription)</a></li>
+<li><a href="#alternateFeatureName">Alternate Feature Name (alternateFeatureName)</a></li>
+<li><a href="#areaSize">Area Size (areaSize)</a></li>
+<li><a href="#buildingAddress">Building Address (buildingAddress)</a></li>
+<li><a href="#buildingIdpk">Primary Key Identifier (buildingIdpk)</a></li>
+<li><a href="#buildingNumber">Building Number (buildingNumber)</a></li>
+<li><a href="#builtDate">Built Date (builtDate)</a></li>
+<li><a href="#categoryCode">Category Code (categoryCode)</a></li>
+<li><a href="#cityOrCommunityName">City or MSAG Community Name (cityOrCommunityName)</a></li>
+<li><a href="#createDate">Create Date (createDate)</a></li>
+<li><a href="#creator">Creator (creator)</a></li>
+<li><a href="#dataSource">Data Source (dataSource)</a></li>
+<li><a href="#dataSteward">Data Steward (dataSteward)</a></li>
+<li><a href="#dateEdited">Date Edited (dateEdited)</a></li>
+<li><a href="#editor">Editor (editor)</a></li>
+<li><a href="#elevation">Elevation (elevation)</a></li>
+<li><a href="#facilityConditionIndex">Facility Condition Index (facilityConditionIndex)</a></li>
+<li><a href="#facilityGrossSqFt">Facility Gross Sq Ft (facilityGrossSqFt)</a></li>
+<li><a href="#facilityNumber">Facility Number (facilityNumber)</a></li>
+<li><a href="#featureDescription">Feature Description (featureDescription)</a></li>
+<li><a href="#featureName">Feature Name (featureName)</a></li>
+<li><a href="#flexFieldDt">Flex Field Date Time (flexFieldDt)</a></li>
+<li><a href="#flexFieldInt">Flex Field Integer (flexFieldInt)</a></li>
+<li><a href="#flexFieldRealNum">Flex Field Real Number (flexFieldRealNum)</a></li>
+<li><a href="#flexFieldStr">Flex Field String (flexFieldStr)</a></li>
+<li><a href="#geoloc">GEOLOC (geoloc)</a></li>
+<li><a href="#heightMax">Height Max (heightMax)</a></li>
+<li><a href="#latitude">Latitude (latitude)</a></li>
+<li><a href="#longitude">Longitude (longitude)</a></li>
+<li><a href="#mediaId">Media Identifier (mediaId)</a></li>
+<li><a href="#metaNotes">Meta Notes (metaNotes)</a></li>
+<li><a href="#metadataId">Metadata Identifier (metadataId)</a></li>
+<li><a href="#mgrs">Military Grid Reference System (mgrs)</a></li>
+<li><a href="#narrative">Narrative (narrative)</a></li>
+<li><a href="#perimeterSize">Perimeter Size (perimeterSize)</a></li>
+<li><a href="#releasePolicy">Release Policy (releasePolicy)</a></li>
+<li><a href="#roadName">Road Name (roadName)</a></li>
+<li><a href="#roadSuffix">Road Suffix (roadSuffix)</a></li>
+<li><a href="#rpaPredomCurrentUseCatCode">RPA Predominant Current Use CAT Code (rpaPredomCurrentUseCatCode)</a></li>
+<li><a href="#rpnid">Real Property Network Identifier (rpnid)</a></li>
+<li><a href="#rpuid">Real Property Unique Identifier (rpuid)</a></li>
+<li><a href="#sdsId">Globally Unique Identifier (sdsId)</a></li>
+<li><a href="#wacInnrCode">WAC INNR Code (wacInnrCode)</a></li>
+<li><a href="#zipCode">Zip Code (zipCode)</a></li>
+<li><a href="#zipCodePlusFour">Zip Code + 4 (zipCodePlusFour)</a></li>
+<li><a href="#Shape_Length">Shape_Length (Shape_Length)</a></li>
+<li><a href="#Shape_Area">Shape_Area (Shape_Area)</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <h2>Fields with Domain Constraints</h2>
+        <p>The following fields have predefined domain values that constrain the allowable inputs. 
+        Each field includes a detailed description and complete list of valid options.</p>
+        <div class="field-section" id="areaSizeUom">
+            <div class="field-info">
+                <div class="field-name">areaSizeUom<span class="field-alias">(Area Size UOM)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The area unit of measure mandated in DoD IT Standards Registry (DISR).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Acre</td><td class="code">acre</td></tr>
+<tr><td>Hectare</td><td class="code">hectare</td></tr>
+<tr><td>Square Centimeter</td><td class="code">squareCentimeter</td></tr>
+<tr><td>Square Decameter</td><td class="code">squareDecameter</td></tr>
+<tr><td>Square Decimeter</td><td class="code">squareDecimeter</td></tr>
+<tr><td>Square Foot</td><td class="code">squareFoot</td></tr>
+<tr><td>Square Inch</td><td class="code">squareInch</td></tr>
+<tr><td>Square Kilometer</td><td class="code">squareKilometer</td></tr>
+<tr><td>Square Meter</td><td class="code">squareMeter</td></tr>
+<tr><td>Square Millimeter</td><td class="code">squareMillimeter</td></tr>
+<tr><td>Square Nautical Mile</td><td class="code">squareNauticalMile</td></tr>
+<tr><td>Square Statue Mile</td><td class="code">squareStatuteMile</td></tr>
+<tr><td>Square Yard</td><td class="code">squareYard</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="buildingCondition">
+            <div class="field-info">
+                <div class="field-name">buildingCondition<span class="field-alias">(Building Condition)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The structural condition and state of repair of a building or structure.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Boarded Up</td><td class="code">boardedUp</td></tr>
+<tr><td>Broken and Unusable</td><td class="code">brokenNoUse</td></tr>
+<tr><td>Burnt and Unusable</td><td class="code">burntNoUse</td></tr>
+<tr><td>Burnt, but Usable</td><td class="code">burntUsable</td></tr>
+<tr><td>Condemned</td><td class="code">condemned</td></tr>
+<tr><td>Cracked</td><td class="code">cracked</td></tr>
+<tr><td>Damaged</td><td class="code">damaged</td></tr>
+<tr><td>Heavy Damage, Unusable</td><td class="code">damageHevNo</td></tr>
+<tr><td>Heavy Damage, but Usable</td><td class="code">damageHevUse</td></tr>
+<tr><td>Light Damage, Unusable</td><td class="code">damageLitNo</td></tr>
+<tr><td>Light Damage, but Usable</td><td class="code">damageLitUse</td></tr>
+<tr><td>Moderate Damage, Unusable</td><td class="code">damageModNo</td></tr>
+<tr><td>Moderate Damage, but Usable</td><td class="code">damageModUse</td></tr>
+<tr><td>Dangerous</td><td class="code">dangerous</td></tr>
+<tr><td>Fair</td><td class="code">fair</td></tr>
+<tr><td>Estimated in Fair Condition</td><td class="code">fairEstimated</td></tr>
+<tr><td>Good</td><td class="code">good</td></tr>
+<tr><td>Estimated in Good Condition</td><td class="code">goodEstimated</td></tr>
+<tr><td>Good, but Not New</td><td class="code">goodNotNew</td></tr>
+<tr><td>Habitable</td><td class="code">habitable</td></tr>
+<tr><td>Not Habitable</td><td class="code">habitableNo</td></tr>
+<tr><td>For Minor Use</td><td class="code">minorUse</td></tr>
+<tr><td>Newly Built</td><td class="code">newlyBuilt</td></tr>
+<tr><td>New and Unfinished</td><td class="code">newUnfinish</td></tr>
+<tr><td>No Trespassing</td><td class="code">noTrespassing</td></tr>
+<tr><td>Other</td><td class="code">other</td></tr>
+<tr><td>Poor</td><td class="code">poor</td></tr>
+<tr><td>Estimated in Poor Condition</td><td class="code">poorEstimated</td></tr>
+<tr><td>Quarantined</td><td class="code">quarantined</td></tr>
+<tr><td>Radioactive</td><td class="code">radioactive</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>Under Construction</td><td class="code">underConstruction</td></tr>
+<tr><td>Unserviceable</td><td class="code">unservicable</td></tr>
+<tr><td>Usable</td><td class="code">usable</td></tr>
+<tr><td>Not Usable</td><td class="code">usableNo</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="buildingConditionIndex">
+            <div class="field-info">
+                <div class="field-name">buildingConditionIndex<span class="field-alias">(Building Condition Index)</span><span class="field-type">Integer</span></div>
+            </div>
+            <div class="domain-description">
+                Condition value from zero to 100 computed after the inspection of the SMS feature. If there is no SMS condition value select -1 to represent Not Evaluated.
+            </div>
+            <div class="range-info">
+                <strong>Range Domain:</strong> Minimum value: <span class="code">-1</span>, 
+                Maximum value: <span class="code">100</span>
+            </div></div>
+
+        <div class="field-section" id="buildingCustodialType">
+            <div class="field-info">
+                <div class="field-name">buildingCustodialType<span class="field-alias">(Building Custodial Type)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The type of custodian for the building: level 1 (prestige), level 2 (basic), etc.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Child Development Centers</td><td class="code">childDevelopmentCenters</td></tr>
+<tr><td>Fitness Centers</td><td class="code">fitnessCenters</td></tr>
+<tr><td>Level 1 and 2</td><td class="code">level1and2</td></tr>
+<tr><td>Level 1 and 3</td><td class="code">level1and3</td></tr>
+<tr><td>Level 1 Prestige</td><td class="code">level1Prestige</td></tr>
+<tr><td>Level 2 And 3</td><td class="code">level2And3</td></tr>
+<tr><td>Level 2 Basic</td><td class="code">level2Basic</td></tr>
+<tr><td>Level 3 Academics</td><td class="code">level3Academics</td></tr>
+<tr><td>Medical Group</td><td class="code">medicalGroup</td></tr>
+<tr><td>Other</td><td class="code">other</td></tr>
+<tr><td>School Age Program</td><td class="code">schoolAgeProgram</td></tr>
+<tr><td>Youth Centers</td><td class="code">youthCenters</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="buildingOpStatus">
+            <div class="field-info">
+                <div class="field-name">buildingOpStatus<span class="field-alias">(Building Op Status)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The state of usability of the feature.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Abandoned</td><td class="code">abandoned</td></tr>
+<tr><td>Closed</td><td class="code">closed</td></tr>
+<tr><td>Damaged</td><td class="code">damaged</td></tr>
+<tr><td>In Service</td><td class="code">inService</td></tr>
+<tr><td>Not In Service</td><td class="code">notInService</td></tr>
+<tr><td>Other</td><td class="code">other</td></tr>
+<tr><td>Programmed</td><td class="code">programmed</td></tr>
+<tr><td>Proposed</td><td class="code">proposed</td></tr>
+<tr><td>Proposed Abandoned</td><td class="code">proposedAbandoned</td></tr>
+<tr><td>Proposed Removed</td><td class="code">proposedRemoved</td></tr>
+<tr><td>Removed</td><td class="code">removed</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>Temporary</td><td class="code">temporary</td></tr>
+<tr><td>Under Construction</td><td class="code">underConstruction</td></tr>
+<tr><td>Under Repair</td><td class="code">underRepair</td></tr>
+<tr><td>Unknown</td><td class="code">unknown</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="country">
+            <div class="field-info">
+                <div class="field-name">country<span class="field-alias">(Country)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The country that owns that specific feature.
+            </div>
+            <div class="large-domain-note">
+                <strong>Large Domain:</strong> This field has 274 possible values. 
+                Showing first 20 values. Complete list available in CSV files.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Aruba (AW)</td><td class="code">abw</td></tr>
+<tr><td>Afghanistan (AF)</td><td class="code">afg</td></tr>
+<tr><td>Angola (AO)</td><td class="code">ago</td></tr>
+<tr><td>Anguilla (AI)</td><td class="code">aia</td></tr>
+<tr><td>Albania (AL)</td><td class="code">alb</td></tr>
+<tr><td>Andorra (AD)</td><td class="code">and</td></tr>
+<tr><td>United Arab Emirates (AE)</td><td class="code">are</td></tr>
+<tr><td>Argentina (AR)</td><td class="code">arg</td></tr>
+<tr><td>Armenia (AM)</td><td class="code">arm</td></tr>
+<tr><td>American Samoa (AS)</td><td class="code">asm</td></tr>
+<tr><td>Antarctica (AQ)</td><td class="code">ata</td></tr>
+<tr><td>French Southern and Antarctic Lands (TF)</td><td class="code">atf</td></tr>
+<tr><td>Antigua And Barbuda (AG)</td><td class="code">atg</td></tr>
+<tr><td>Australia (AU)</td><td class="code">aus</td></tr>
+<tr><td>Austria (AT)</td><td class="code">aut</td></tr>
+<tr><td>GUANTANAMO BAY NAVAL BASE (A2)</td><td class="code">ax2</td></tr>
+<tr><td>Azerbaijan (AZ)</td><td class="code">aze</td></tr>
+<tr><td>Burundi (BI)</td><td class="code">bdi</td></tr>
+<tr><td>Belgium (BE)</td><td class="code">bel</td></tr>
+<tr><td>Benin (BJ)</td><td class="code">ben</td></tr>
+
+                    <tr><td colspan="2"><em>... and 254 more values</em></td></tr>
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="dataCollection">
+            <div class="field-info">
+                <div class="field-name">dataCollection<span class="field-alias">(Data Collection)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                Describes how the data was acquired, created or generated.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Attribute Survey Only</td><td class="code">attrOnly</td></tr>
+<tr><td>CAD As Built</td><td class="code">cadAsBuilt</td></tr>
+<tr><td>CAD Design</td><td class="code">cadDesign</td></tr>
+<tr><td>Calculated</td><td class="code">calculated</td></tr>
+<tr><td>COGO</td><td class="code">cogo</td></tr>
+<tr><td>Digitized Aerial</td><td class="code">digitizedAerial</td></tr>
+<tr><td>Digitized Map</td><td class="code">digitizedMap</td></tr>
+<tr><td>Digitized Satellite</td><td class="code">digitizedSatellite</td></tr>
+<tr><td>Georeferenced CAD File</td><td class="code">georeferencedCadFile</td></tr>
+<tr><td>GPS Multi</td><td class="code">gpsMulti</td></tr>
+<tr><td>GPS Resource</td><td class="code">gpsResource</td></tr>
+<tr><td>GPS Survey</td><td class="code">gpsSurvey</td></tr>
+<tr><td>Imagery</td><td class="code">imagery</td></tr>
+<tr><td>Imagery – Heads Up Digitized</td><td class="code">imageryHeadsUpDigitized</td></tr>
+<tr><td>Imagery – Heads up Digitized & Mapping Grade GPS Field Verification</td><td class="code">imageryHeadsupDigitizedMappingGradeGpsFieldVerification</td></tr>
+<tr><td>Imagery – Heads up Digitized & Surveyed Field Verification</td><td class="code">imageryHeadsupDigitizedSurveyedFieldVerification</td></tr>
+<tr><td>Imagery – Stereo Photo Interpretation</td><td class="code">imageryStereoPhotoInterpretation</td></tr>
+<tr><td>Imagery - Stereo Photo Interpretation & Mapping Grade GPS Field Verification</td><td class="code">imageryStereoPhotoInterpretationMappingGradeGPSFieldVerification</td></tr>
+<tr><td>Imagery – Stereo Photo Interpretation & Surveyed Field Verification</td><td class="code">imageryStereoPhotoInterpretationSurveyedFieldVerification</td></tr>
+<tr><td>LIDAR</td><td class="code">lidar</td></tr>
+<tr><td>Optical Survey</td><td class="code">opticalSurvey</td></tr>
+<tr><td>Other</td><td class="code">other</td></tr>
+<tr><td>As-Built Drawing - Paper</td><td class="code">paperAsBuilt</td></tr>
+<tr><td>Record Drawing - Paper</td><td class="code">paperDrawing</td></tr>
+<tr><td>Sampling</td><td class="code">sampling</td></tr>
+<tr><td>SCADA</td><td class="code">scada</td></tr>
+<tr><td>Sketched</td><td class="code">sketched</td></tr>
+<tr><td>SPM</td><td class="code">spm</td></tr>
+<tr><td>Tape Measure</td><td class="code">tapeMeasure</td></tr>
+<tr><td>Traditional Survey</td><td class="code">tradSurvey</td></tr>
+<tr><td>Unknown</td><td class="code">unknown</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="elevationUom">
+            <div class="field-info">
+                <div class="field-name">elevationUom<span class="field-alias">(Elevation Unit of Measure)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The length unit of measure mandated in DoD IT Standards Registry (DISR).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Astronomic Unit</td><td class="code">astronomicUnit</td></tr>
+<tr><td>Centimeter</td><td class="code">centimetre</td></tr>
+<tr><td>Data Mile</td><td class="code">dataMile</td></tr>
+<tr><td>Decafoot</td><td class="code">decafoot</td></tr>
+<tr><td>Decakilometer</td><td class="code">decakilometre</td></tr>
+<tr><td>Decameter</td><td class="code">decametre</td></tr>
+<tr><td>Decifoot</td><td class="code">decifoot</td></tr>
+<tr><td>Decimeter</td><td class="code">decimetre</td></tr>
+<tr><td>Deci-Nautical Mile</td><td class="code">deciNauticalMile</td></tr>
+<tr><td>Fathom</td><td class="code">fathom</td></tr>
+<tr><td>Half Foot</td><td class="code">halfFoot</td></tr>
+<tr><td>Half Hectometer</td><td class="code">halfHectometre</td></tr>
+<tr><td>Half Meter</td><td class="code">halfMetre</td></tr>
+<tr><td>Hectofoot</td><td class="code">hectofoot</td></tr>
+<tr><td>Hectokilometer</td><td class="code">hectokilometre</td></tr>
+<tr><td>Hectometer</td><td class="code">hectometre</td></tr>
+<tr><td>Inch</td><td class="code">inch</td></tr>
+<tr><td>International Foot</td><td class="code">internationalFoot</td></tr>
+<tr><td>Kilofoot</td><td class="code">kilofoot</td></tr>
+<tr><td>Kilometer</td><td class="code">kilometre</td></tr>
+<tr><td>Kiloyard</td><td class="code">kiloyard</td></tr>
+<tr><td>Meter</td><td class="code">metre</td></tr>
+<tr><td>Micrometer</td><td class="code">micrometre</td></tr>
+<tr><td>Millimeter</td><td class="code">millimetre</td></tr>
+<tr><td>Not Applicable</td><td class="code">na</td></tr>
+<tr><td>Nanometer</td><td class="code">nanometre</td></tr>
+<tr><td>Nautical Mile</td><td class="code">nauticalMile</td></tr>
+<tr><td>Picometer</td><td class="code">picometre</td></tr>
+<tr><td>Statute Mile</td><td class="code">statuteMile</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>US Survey Foot</td><td class="code">usSurveyFoot</td></tr>
+<tr><td>US Survey Mile</td><td class="code">usSurveyMile</td></tr>
+<tr><td>Yard</td><td class="code">yard</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="facilityConditionCode">
+            <div class="field-info">
+                <div class="field-name">facilityConditionCode<span class="field-alias">(Facility Condition Code)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The physical capability of a facility to accommodate the currently approved activity/function.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Usable Class A</td><td class="code">1usableclassA</td></tr>
+<tr><td>Usable Class B</td><td class="code">2usableclassB</td></tr>
+<tr><td>Forced Use</td><td class="code">3forcedUse</td></tr>
+<tr><td>Sterile</td><td class="code">4sterile</td></tr>
+<tr><td>Committed to Congress</td><td class="code">5committedtoCongress</td></tr>
+<tr><td>Disposal Approved</td><td class="code">6disposalApproved</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="facilityGrossSqFtUom">
+            <div class="field-info">
+                <div class="field-name">facilityGrossSqFtUom<span class="field-alias">(Facility Gross Sq Ft UOM)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The area unit of measure mandated in DoD IT Standards Registry (DISR).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Acre</td><td class="code">acre</td></tr>
+<tr><td>Hectare</td><td class="code">hectare</td></tr>
+<tr><td>Square Centimeter</td><td class="code">squareCentimeter</td></tr>
+<tr><td>Square Decameter</td><td class="code">squareDecameter</td></tr>
+<tr><td>Square Decimeter</td><td class="code">squareDecimeter</td></tr>
+<tr><td>Square Foot</td><td class="code">squareFoot</td></tr>
+<tr><td>Square Inch</td><td class="code">squareInch</td></tr>
+<tr><td>Square Kilometer</td><td class="code">squareKilometer</td></tr>
+<tr><td>Square Meter</td><td class="code">squareMeter</td></tr>
+<tr><td>Square Millimeter</td><td class="code">squareMillimeter</td></tr>
+<tr><td>Square Nautical Mile</td><td class="code">squareNauticalMile</td></tr>
+<tr><td>Square Statue Mile</td><td class="code">squareStatuteMile</td></tr>
+<tr><td>Square Yard</td><td class="code">squareYard</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="flexFieldYn">
+            <div class="field-info">
+                <div class="field-name">flexFieldYn<span class="field-alias">(Flex Field Boolean)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                An indication of a choice between yes or no.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Yes</td><td class="code">yes</td></tr>
+<tr><td>No</td><td class="code">no</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="hasGiantVoice">
+            <div class="field-info">
+                <div class="field-name">hasGiantVoice<span class="field-alias">(Has Giant Voice)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                An indication of a choice between yes or no.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Yes</td><td class="code">yes</td></tr>
+<tr><td>No</td><td class="code">no</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="hasMassNotificationDevice">
+            <div class="field-info">
+                <div class="field-name">hasMassNotificationDevice<span class="field-alias">(has Mass Notification Device)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                An indication of a choice between yes or no.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Yes</td><td class="code">yes</td></tr>
+<tr><td>No</td><td class="code">no</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="heightMaxUom">
+            <div class="field-info">
+                <div class="field-name">heightMaxUom<span class="field-alias">(Height Max Uom)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The length unit of measure mandated in DoD IT Standards Registry (DISR).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Astronomic Unit</td><td class="code">astronomicUnit</td></tr>
+<tr><td>Centimeter</td><td class="code">centimetre</td></tr>
+<tr><td>Data Mile</td><td class="code">dataMile</td></tr>
+<tr><td>Decafoot</td><td class="code">decafoot</td></tr>
+<tr><td>Decakilometer</td><td class="code">decakilometre</td></tr>
+<tr><td>Decameter</td><td class="code">decametre</td></tr>
+<tr><td>Decifoot</td><td class="code">decifoot</td></tr>
+<tr><td>Decimeter</td><td class="code">decimetre</td></tr>
+<tr><td>Deci-Nautical Mile</td><td class="code">deciNauticalMile</td></tr>
+<tr><td>Fathom</td><td class="code">fathom</td></tr>
+<tr><td>Half Foot</td><td class="code">halfFoot</td></tr>
+<tr><td>Half Hectometer</td><td class="code">halfHectometre</td></tr>
+<tr><td>Half Meter</td><td class="code">halfMetre</td></tr>
+<tr><td>Hectofoot</td><td class="code">hectofoot</td></tr>
+<tr><td>Hectokilometer</td><td class="code">hectokilometre</td></tr>
+<tr><td>Hectometer</td><td class="code">hectometre</td></tr>
+<tr><td>Inch</td><td class="code">inch</td></tr>
+<tr><td>International Foot</td><td class="code">internationalFoot</td></tr>
+<tr><td>Kilofoot</td><td class="code">kilofoot</td></tr>
+<tr><td>Kilometer</td><td class="code">kilometre</td></tr>
+<tr><td>Kiloyard</td><td class="code">kiloyard</td></tr>
+<tr><td>Meter</td><td class="code">metre</td></tr>
+<tr><td>Micrometer</td><td class="code">micrometre</td></tr>
+<tr><td>Millimeter</td><td class="code">millimetre</td></tr>
+<tr><td>Not Applicable</td><td class="code">na</td></tr>
+<tr><td>Nanometer</td><td class="code">nanometre</td></tr>
+<tr><td>Nautical Mile</td><td class="code">nauticalMile</td></tr>
+<tr><td>Picometer</td><td class="code">picometre</td></tr>
+<tr><td>Statute Mile</td><td class="code">statuteMile</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>US Survey Foot</td><td class="code">usSurveyFoot</td></tr>
+<tr><td>US Survey Mile</td><td class="code">usSurveyMile</td></tr>
+<tr><td>Yard</td><td class="code">yard</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="installationId">
+            <div class="field-info">
+                <div class="field-name">installationId<span class="field-alias">(Installation Identifier)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                Installation identifier assigned to the Installation by real property.
+            </div>
+            <div class="large-domain-note">
+                <strong>Large Domain:</strong> This field has 322 possible values. 
+                Showing first 20 values. Complete list available in CSV files.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>aawz - ACC AMIC</td><td class="code">aawz</td></tr>
+<tr><td>abaa - Abston ANGS</td><td class="code">abaa</td></tr>
+<tr><td>acjp - Los Angeles AFB</td><td class="code">acjp</td></tr>
+<tr><td>aedy - RAF Alconbury</td><td class="code">aedy</td></tr>
+<tr><td>aggn - Altus AFB</td><td class="code">aggn</td></tr>
+<tr><td>ajjy - Andersen AFB</td><td class="code">ajjy</td></tr>
+<tr><td>ajka - Andersen AFB, Santa Rosa Parcel C</td><td class="code">ajka</td></tr>
+<tr><td>ajke - Andersen AFB, Barrigada</td><td class="code">ajke</td></tr>
+<tr><td>ajxf - JB Andrews</td><td class="code">ajxf</td></tr>
+<tr><td>anjd - Arkabutla Lake ANG Training Annex</td><td class="code">anjd</td></tr>
+<tr><td>anyg - AF Research Laboratory Mesa (BRAC)</td><td class="code">anyg</td></tr>
+<tr><td>anzy - Arnold AFB</td><td class="code">anzy</td></tr>
+<tr><td>aqrc - Atlantic City International Airport AGS</td><td class="code">aqrc</td></tr>
+<tr><td>ashe - Aviano AB</td><td class="code">ashe</td></tr>
+<tr><td>atqz - Fort Wayne International Airport AGS</td><td class="code">atqz</td></tr>
+<tr><td>awub - Barksdale AFB</td><td class="code">awub</td></tr>
+<tr><td>axqd - Barnes Municipal Airport AGS</td><td class="code">axqd</td></tr>
+<tr><td>baal - Kalaeloa ANG</td><td class="code">baal</td></tr>
+<tr><td>baam - Barking Sands Naval Comm Station ANG</td><td class="code">baam</td></tr>
+<tr><td>baey - Beale AFB</td><td class="code">baey</td></tr>
+
+                    <tr><td colspan="2"><em>... and 302 more values</em></td></tr>
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="installationName">
+            <div class="field-info">
+                <div class="field-name">installationName<span class="field-alias">(Installation Name)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The name of the installation that is associated with the installation ID defined by Real Property.
+            </div>
+            <div class="large-domain-note">
+                <strong>Large Domain:</strong> This field has 291 possible values. 
+                Showing first 20 values. Complete list available in CSV files.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Abe Lincoln Capital Airport AGS</td><td class="code">abeLincolnCapitalArptAgs</td></tr>
+<tr><td>Abston ANGS</td><td class="code">abstonAngs</td></tr>
+<tr><td>ACC AMIC</td><td class="code">accAmic</td></tr>
+<tr><td>AF Plant 42</td><td class="code">afPlant42</td></tr>
+<tr><td>AF Research Laboratory Mesa</td><td class="code">afrlMesa</td></tr>
+<tr><td>Alpena County Regional Airport ANGB</td><td class="code">alpenaCountyRegionalArptAngb</td></tr>
+<tr><td>Altus AFB</td><td class="code">altusAfb</td></tr>
+<tr><td>Andersen AFB</td><td class="code">andersenAfb</td></tr>
+<tr><td>Arkabutla Lake ANG Training Annex</td><td class="code">arkabutlaLakeAngTrainingAnnex</td></tr>
+<tr><td>Arnold AFB</td><td class="code">arnoldAfb</td></tr>
+<tr><td>Atlantic City International Airport AGS</td><td class="code">atlanticCityIApAgs</td></tr>
+<tr><td>Aviano AB</td><td class="code">avianoAb</td></tr>
+<tr><td>Bangor International Airport AGS</td><td class="code">bangorIApAgs</td></tr>
+<tr><td>Barking Sands Naval Comm Station ANG</td><td class="code">barkingSandsNavalCommStationAng</td></tr>
+<tr><td>Barksdale AFB</td><td class="code">barksdaleAfb</td></tr>
+<tr><td>Barnes Municipal Airport AGS</td><td class="code">barnesMApAgs</td></tr>
+<tr><td>Beale AFB</td><td class="code">bealeAfb</td></tr>
+<tr><td>Bergstrom AFB</td><td class="code">bergstromAfb</td></tr>
+<tr><td>Birmingham Municipal Airport AGS</td><td class="code">birminghamMApAgs</td></tr>
+<tr><td>Blue Ash ANGS</td><td class="code">blueAshAngs</td></tr>
+
+                    <tr><td colspan="2"><em>... and 271 more values</em></td></tr>
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="isHeritageAsset">
+            <div class="field-info">
+                <div class="field-name">isHeritageAsset<span class="field-alias">(Is Heritage Asset)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                An indication of a choice between yes or no.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Yes</td><td class="code">yes</td></tr>
+<tr><td>No</td><td class="code">no</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="isRealProperty">
+            <div class="field-info">
+                <div class="field-name">isRealProperty<span class="field-alias">(Is Real Property)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                An indication of a choice between yes or no.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Yes</td><td class="code">yes</td></tr>
+<tr><td>No</td><td class="code">no</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="majorCommand">
+            <div class="field-info">
+                <div class="field-name">majorCommand<span class="field-alias">(Major Command)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                Service Major Command of the installation.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Air Combat Command</td><td class="code">acc</td></tr>
+<tr><td>Air Education and Training Command</td><td class="code">aetc</td></tr>
+<tr><td>Air Force District of Washington</td><td class="code">afdw</td></tr>
+<tr><td>Air Force Global Strike Command</td><td class="code">afgsc</td></tr>
+<tr><td>Air Force Materiel Command</td><td class="code">afmc</td></tr>
+<tr><td>Air Force Reserve Command</td><td class="code">afrc</td></tr>
+<tr><td>Air Force Special Operations Command</td><td class="code">afsoc</td></tr>
+<tr><td>Air Mobility Command</td><td class="code">amc</td></tr>
+<tr><td>Air National Guard</td><td class="code">ang</td></tr>
+<tr><td>Other</td><td class="code">other</td></tr>
+<tr><td>Pacific Air Forces</td><td class="code">pacaf</td></tr>
+<tr><td>Space Operations Command</td><td class="code">spoc</td></tr>
+<tr><td>United States Air Force Academy</td><td class="code">usafa</td></tr>
+<tr><td>United States Air Forces in Europe</td><td class="code">usafe</td></tr>
+<tr><td>Space Systems Command</td><td class="code">ssc</td></tr>
+<tr><td>Space Training and Readiness Command</td><td class="code">starcom</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="missionDependencyIndex">
+            <div class="field-info">
+                <div class="field-name">missionDependencyIndex<span class="field-alias">(Mission Dependency Index)</span><span class="field-type">Integer</span></div>
+            </div>
+            <div class="domain-description">
+                Condition value from zero to 100 computed after the inspection of the SMS feature. If there is no SMS condition value select -1 to represent Not Evaluated.
+            </div>
+            <div class="range-info">
+                <strong>Range Domain:</strong> Minimum value: <span class="code">-1</span>, 
+                Maximum value: <span class="code">100</span>
+            </div></div>
+
+        <div class="field-section" id="owner">
+            <div class="field-info">
+                <div class="field-name">owner<span class="field-alias">(Owner)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The DoD Component or other entity that owns the asset.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>US Air Force Reserve</td><td class="code">afr</td></tr>
+<tr><td>Air National Guard</td><td class="code">airNationalGuard</td></tr>
+<tr><td>Army National Guard</td><td class="code">armyNationalGuard</td></tr>
+<tr><td>US County</td><td class="code">county</td></tr>
+<tr><td>Federal General Services Administration</td><td class="code">federalGSA</td></tr>
+<tr><td>Other Federal Administration</td><td class="code">federalOther</td></tr>
+<tr><td>Host Nation</td><td class="code">hostNation</td></tr>
+<tr><td>Leased</td><td class="code">leased</td></tr>
+<tr><td>NATO, Non-Federal</td><td class="code">nonFederalNato</td></tr>
+<tr><td>Other Non-Federal Non-NATO</td><td class="code">nonFederalOtherNonNato</td></tr>
+<tr><td>Other</td><td class="code">other</td></tr>
+<tr><td>Public-Private Venture</td><td class="code">ppv</td></tr>
+<tr><td>Private Entity</td><td class="code">private</td></tr>
+<tr><td>US State</td><td class="code">state</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>US Army</td><td class="code">usa</td></tr>
+<tr><td>US Army Corps of Engineers</td><td class="code">usace</td></tr>
+<tr><td>US Air Force</td><td class="code">usaf</td></tr>
+<tr><td>US Army Reserve</td><td class="code">usar</td></tr>
+<tr><td>US Coast Guard</td><td class="code">uscg</td></tr>
+<tr><td>US Marine Corps</td><td class="code">usmc</td></tr>
+<tr><td>US Marine Corps Reserve</td><td class="code">usmcr</td></tr>
+<tr><td>US Navy</td><td class="code">usn</td></tr>
+<tr><td>US Navy Reserve</td><td class="code">usnr</td></tr>
+<tr><td>United States Space Force</td><td class="code">ussf</td></tr>
+<tr><td>Washington Headquarters Service</td><td class="code">whs</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="perimeterSizeUom">
+            <div class="field-info">
+                <div class="field-name">perimeterSizeUom<span class="field-alias">(Perimeter Size UOM)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The length unit of measure mandated in DoD IT Standards Registry (DISR).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Astronomic Unit</td><td class="code">astronomicUnit</td></tr>
+<tr><td>Centimeter</td><td class="code">centimetre</td></tr>
+<tr><td>Data Mile</td><td class="code">dataMile</td></tr>
+<tr><td>Decafoot</td><td class="code">decafoot</td></tr>
+<tr><td>Decakilometer</td><td class="code">decakilometre</td></tr>
+<tr><td>Decameter</td><td class="code">decametre</td></tr>
+<tr><td>Decifoot</td><td class="code">decifoot</td></tr>
+<tr><td>Decimeter</td><td class="code">decimetre</td></tr>
+<tr><td>Deci-Nautical Mile</td><td class="code">deciNauticalMile</td></tr>
+<tr><td>Fathom</td><td class="code">fathom</td></tr>
+<tr><td>Half Foot</td><td class="code">halfFoot</td></tr>
+<tr><td>Half Hectometer</td><td class="code">halfHectometre</td></tr>
+<tr><td>Half Meter</td><td class="code">halfMetre</td></tr>
+<tr><td>Hectofoot</td><td class="code">hectofoot</td></tr>
+<tr><td>Hectokilometer</td><td class="code">hectokilometre</td></tr>
+<tr><td>Hectometer</td><td class="code">hectometre</td></tr>
+<tr><td>Inch</td><td class="code">inch</td></tr>
+<tr><td>International Foot</td><td class="code">internationalFoot</td></tr>
+<tr><td>Kilofoot</td><td class="code">kilofoot</td></tr>
+<tr><td>Kilometer</td><td class="code">kilometre</td></tr>
+<tr><td>Kiloyard</td><td class="code">kiloyard</td></tr>
+<tr><td>Meter</td><td class="code">metre</td></tr>
+<tr><td>Micrometer</td><td class="code">micrometre</td></tr>
+<tr><td>Millimeter</td><td class="code">millimetre</td></tr>
+<tr><td>Not Applicable</td><td class="code">na</td></tr>
+<tr><td>Nanometer</td><td class="code">nanometre</td></tr>
+<tr><td>Nautical Mile</td><td class="code">nauticalMile</td></tr>
+<tr><td>Picometer</td><td class="code">picometre</td></tr>
+<tr><td>Statute Mile</td><td class="code">statuteMile</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>US Survey Foot</td><td class="code">usSurveyFoot</td></tr>
+<tr><td>US Survey Mile</td><td class="code">usSurveyMile</td></tr>
+<tr><td>Yard</td><td class="code">yard</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="roadPostDirectional">
+            <div class="field-info">
+                <div class="field-name">roadPostDirectional<span class="field-alias">(Road Post Directional)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The direction including both the four cardinal and four intercardinal, or ordinal, directions.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>East</td><td class="code">e</td></tr>
+<tr><td>North</td><td class="code">n</td></tr>
+<tr><td>Northeast</td><td class="code">ne</td></tr>
+<tr><td>Northwest</td><td class="code">nw</td></tr>
+<tr><td>South</td><td class="code">s</td></tr>
+<tr><td>Southeast</td><td class="code">se</td></tr>
+<tr><td>Southwest</td><td class="code">sw</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>West</td><td class="code">w</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="roadPrefixDirectional">
+            <div class="field-info">
+                <div class="field-name">roadPrefixDirectional<span class="field-alias">(Road Prefix Directional)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The direction including both the four cardinal and four intercardinal, or ordinal, directions.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>East</td><td class="code">e</td></tr>
+<tr><td>North</td><td class="code">n</td></tr>
+<tr><td>Northeast</td><td class="code">ne</td></tr>
+<tr><td>Northwest</td><td class="code">nw</td></tr>
+<tr><td>South</td><td class="code">s</td></tr>
+<tr><td>Southeast</td><td class="code">se</td></tr>
+<tr><td>Southwest</td><td class="code">sw</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>West</td><td class="code">w</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="rpInterest">
+            <div class="field-info">
+                <div class="field-name">rpInterest<span class="field-alias">(Real Property Interest)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The type of legal interest that the DoD holds in the Real Property Asset (RPA).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Easement</td><td class="code">ease</td></tr>
+<tr><td>U.S. Government-Owned Property,  DoD Accountability</td><td class="code">fee</td></tr>
+<tr><td>Government/Private Agreement</td><td class="code">gvpv</td></tr>
+<tr><td>Leasehold</td><td class="code">leas</td></tr>
+<tr><td>Lesser Interest as Defined by a Legal Instrument</td><td class="code">less</td></tr>
+<tr><td>Military Housing Privatization Initiative</td><td class="code">mhpi</td></tr>
+<tr><td>Not Applicable</td><td class="code">na</td></tr>
+<tr><td>U.S. Government-Owned Property,  Non-DoD Accountability</td><td class="code">onfa</td></tr>
+<tr><td>Owned by Foreign Government</td><td class="code">onfg</td></tr>
+<tr><td>Owned by State or Local Government</td><td class="code">onst</td></tr>
+<tr><td>U.S. Government-Owned Land, Public Domain</td><td class="code">pdom</td></tr>
+<tr><td>Owned by Private Entity</td><td class="code">priv</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="rpaConstructionType">
+            <div class="field-info">
+                <div class="field-name">rpaConstructionType<span class="field-alias">(RPA Construction Type)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The code used to identify the type of construction for the Real Property Asset (RPA).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Permanent Facility</td><td class="code">perm</td></tr>
+<tr><td>Relocatable</td><td class="code">relo</td></tr>
+<tr><td>Semi-permanent Facility</td><td class="code">semi</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>Temporary Facility</td><td class="code">temp</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="rpaType">
+            <div class="field-info">
+                <div class="field-name">rpaType<span class="field-alias">(Real Property Asset Type)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                A hierarchical scheme of real property types and functions that serves as the framework for identifying, categorizing and analyzing the DoD's inventory of land and facilities around the world. Real Property asset types are categorized as Land, Building, Structure, and Linear Structure, used to link assets to the Real Property APSR (AFI 32-9005 16 April 2019).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>B</td><td class="code">b</td></tr>
+<tr><td>L</td><td class="code">l</td></tr>
+<tr><td>LS</td><td class="code">ls</td></tr>
+<tr><td>S</td><td class="code">s</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="rpsuid">
+            <div class="field-info">
+                <div class="field-name">rpsuid<span class="field-alias">(Real Property Site Unique Identifier)</span><span class="field-type">Integer</span></div>
+            </div>
+            <div class="domain-description">
+                The real property site unique identifier.
+            </div>
+            <div class="large-domain-note">
+                <strong>Large Domain:</strong> This field has 2076 possible values. 
+                Showing first 20 values. Complete list available in CSV files.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>1185 - Joint Base Charleston North Yard</td><td class="code">1185</td></tr>
+<tr><td>1186 - Joint Base Charleston Engineering Support</td><td class="code">1186</td></tr>
+<tr><td>1199 - Joint Base Charleston Rncfsu Det 3 </td><td class="code">1199</td></tr>
+<tr><td>1344 - Maxwell Air Force Base Gunther Annex Site #1</td><td class="code">1344</td></tr>
+<tr><td>1345 - Acc Amic Site #1</td><td class="code">1345</td></tr>
+<tr><td>1346 - Abston ANG Station Site # 1</td><td class="code">1346</td></tr>
+<tr><td>1347 - Adana Water System Annex Site #1</td><td class="code">1347</td></tr>
+<tr><td>1348 - St Louis Air Force Station Site 1</td><td class="code">1348</td></tr>
+<tr><td>1349 - Air Force Plant 4 Site #1</td><td class="code">1349</td></tr>
+<tr><td>1350 - Air Force Plant 6 Site #1 </td><td class="code">1350</td></tr>
+<tr><td>1351 - Air Force Plant 44  Site #1 </td><td class="code">1351</td></tr>
+<tr><td>1352 - Air Force Plant No 59 Site #1</td><td class="code">1352</td></tr>
+<tr><td>1353 - Los ANGeles Air Force Base Site #1 </td><td class="code">1353</td></tr>
+<tr><td>1354 - Agualva Munitions Storage Annex Site #1 </td><td class="code">1354</td></tr>
+<tr><td>1355 - Akasaka Administration Anx Site 1</td><td class="code">1355</td></tr>
+<tr><td>1356 - Akhisar Air Base Site #1 </td><td class="code">1356</td></tr>
+<tr><td>1357 - Albsewermeterings Site #1 </td><td class="code">1357</td></tr>
+<tr><td>1359 - Aedc, White Oak Site #1 </td><td class="code">1359</td></tr>
+<tr><td>1360 - RAF Alconbury Site #1 </td><td class="code">1360</td></tr>
+<tr><td>1361 - Altus Air Force Base Site 1</td><td class="code">1361</td></tr>
+
+                    <tr><td colspan="2"><em>... and 2056 more values</em></td></tr>
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="siteId">
+            <div class="field-info">
+                <div class="field-name">siteId<span class="field-alias">(Site ID)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The code assigned to the Site by the Service/WHS that has inventory control.
+            </div>
+            <div class="large-domain-note">
+                <strong>Large Domain:</strong> This field has 2099 possible values. 
+                Showing first 20 values. Complete list available in CSV files.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>aawz0001 - ACC Amic Site #1</td><td class="code">aawz0001</td></tr>
+<tr><td>abaa0001 - Abston ANG Station Site #1</td><td class="code">abaa0001</td></tr>
+<tr><td>abqb0001 - Adana Water System Annex Site #1</td><td class="code">abqb0001</td></tr>
+<tr><td>acbf0001 - St Louis Air Force Station Site #1</td><td class="code">acbf0001</td></tr>
+<tr><td>acbf0002 - Scott AFB National Geospatial Intelligence Agency</td><td class="code">acbf0002</td></tr>
+<tr><td>acfj0001 - Air Force Plant 4, Site #1</td><td class="code">acfj0001</td></tr>
+<tr><td>acfl0001 - Air Force Plant 6, Site #1</td><td class="code">acfl0001</td></tr>
+<tr><td>acha0001 - Air Force Plant 44, Site #1</td><td class="code">acha0001</td></tr>
+<tr><td>achq0001 - Air Force Plant#59, Site #1</td><td class="code">achq0001</td></tr>
+<tr><td>acjp0001 - Los Angeles Air Force Base Site #1</td><td class="code">acjp0001</td></tr>
+<tr><td>acjp0002 - General Services Administration #2</td><td class="code">acjp0002</td></tr>
+<tr><td>acrp0001 - Agualva Munitions Storage Annex Site #1</td><td class="code">acrp0001</td></tr>
+<tr><td>addq0001 - Akasaka Administration Annex Site #1</td><td class="code">addq0001</td></tr>
+<tr><td>aded0001 - Akhisar Air Base Site #1</td><td class="code">aded0001</td></tr>
+<tr><td>aebr0001 - Albsewermeterings Site #1</td><td class="code">aebr0001</td></tr>
+<tr><td>aedc0001 - Aedc, White Oak Site #1</td><td class="code">aedc0001</td></tr>
+<tr><td>aedy0001 - RAF Alconbury Site #1</td><td class="code">aedy0001</td></tr>
+<tr><td>aggn0001 - Altus Air Force Base Site #1</td><td class="code">aggn0001</td></tr>
+<tr><td>aggn0003 - Clinton Sherman</td><td class="code">aggn0003</td></tr>
+<tr><td>aggn0004 - Quartz Mtn-Leased Land</td><td class="code">aggn0004</td></tr>
+
+                    <tr><td colspan="2"><em>... and 2079 more values</em></td></tr>
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="stateName">
+            <div class="field-info">
+                <div class="field-name">stateName<span class="field-alias">(State or Territory Name)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The abbreviation of all of the states and territories.
+            </div>
+            <div class="large-domain-note">
+                <strong>Large Domain:</strong> This field has 68 possible values. 
+                Showing first 20 values. Complete list available in CSV files.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>AA</td><td class="code">aa</td></tr>
+<tr><td>AE</td><td class="code">ae</td></tr>
+<tr><td>AK</td><td class="code">ak</td></tr>
+<tr><td>AL</td><td class="code">al</td></tr>
+<tr><td>AP</td><td class="code">ap</td></tr>
+<tr><td>AR</td><td class="code">ar</td></tr>
+<tr><td>AS</td><td class="code">as</td></tr>
+<tr><td>AZ</td><td class="code">az</td></tr>
+<tr><td>CA</td><td class="code">ca</td></tr>
+<tr><td>CO</td><td class="code">co</td></tr>
+<tr><td>CT</td><td class="code">ct</td></tr>
+<tr><td>DC</td><td class="code">dc</td></tr>
+<tr><td>DE</td><td class="code">de</td></tr>
+<tr><td>ES</td><td class="code">es</td></tr>
+<tr><td>FL</td><td class="code">fl</td></tr>
+<tr><td>FM</td><td class="code">fm</td></tr>
+<tr><td>GA</td><td class="code">ga</td></tr>
+<tr><td>GU</td><td class="code">gu</td></tr>
+<tr><td>HI</td><td class="code">hi</td></tr>
+<tr><td>IA</td><td class="code">ia</td></tr>
+
+                    <tr><td colspan="2"><em>... and 48 more values</em></td></tr>
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="verticalDatumType">
+            <div class="field-info">
+                <div class="field-name">verticalDatumType<span class="field-alias">(Vertical Datum Type)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The type of vertical reference datum used to collect the z location values.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Adriatic Level</td><td class="code">adriaticLevel</td></tr>
+<tr><td>Average Low Water Plane</td><td class="code">alwp</td></tr>
+<tr><td>ALWRP</td><td class="code">alwrp</td></tr>
+<tr><td>Baltic Datum</td><td class="code">balticDatum</td></tr>
+<tr><td>BTLWRP</td><td class="code">btlwrp</td></tr>
+<tr><td>CAIRO</td><td class="code">cairo</td></tr>
+<tr><td>Mean Diurnal High Water Inequality</td><td class="code">dhq</td></tr>
+<tr><td>Mean Diurnal Low Water Inequality</td><td class="code">dlq</td></tr>
+<tr><td>Dutch River Low Water Reference Level (OLR)</td><td class="code">drlwrlOlr</td></tr>
+<tr><td>Diurnal Tide Level</td><td class="code">dtl</td></tr>
+<tr><td>Equivalent Height of Water (German GlW)</td><td class="code">ehwDglw</td></tr>
+<tr><td>Gulf Coast Low Water Datum</td><td class="code">gclwd</td></tr>
+<tr><td>Great Diurnal Range</td><td class="code">gt</td></tr>
+<tr><td>Highest Shipping Height of Water (German HSW)</td><td class="code">hshwDhsw</td></tr>
+<tr><td>Highest Shipping Height of Water According to Danube Commission</td><td class="code">hshwDonau</td></tr>
+<tr><td>Greenwich High Water Interval</td><td class="code">hwi</td></tr>
+<tr><td>International Great Lakes Datum of 1955</td><td class="code">igld55</td></tr>
+<tr><td>International Great Lakes Datum of 1985</td><td class="code">igld85</td></tr>
+<tr><td>LMSL</td><td class="code">lmsl</td></tr>
+<tr><td>Greenwich Low Water Interval</td><td class="code">lwi</td></tr>
+<tr><td>Low Water Reference Plane</td><td class="code">lwrp</td></tr>
+<tr><td>Mean Higher High Water</td><td class="code">mhhw</td></tr>
+<tr><td>Mean High Water</td><td class="code">mhw</td></tr>
+<tr><td>Mean Low Gulf</td><td class="code">mlg</td></tr>
+<tr><td>Mean Lower Low Water</td><td class="code">mllw</td></tr>
+<tr><td>Mean Low Water</td><td class="code">mlw</td></tr>
+<tr><td>MLWRP</td><td class="code">mlwrp</td></tr>
+<tr><td>Mean Range of Tide</td><td class="code">mn</td></tr>
+<tr><td>Mean Sea Level</td><td class="code">msl</td></tr>
+<tr><td>Mean sea level 1912</td><td class="code">msl1912</td></tr>
+<tr><td>Mean sea level 1929</td><td class="code">msl1929</td></tr>
+<tr><td>Mean Tide Level</td><td class="code">mtl</td></tr>
+<tr><td>Not Applicable</td><td class="code">na</td></tr>
+<tr><td>North American Datum of 1983</td><td class="code">nad83</td></tr>
+<tr><td>Amsterdam Ordnance Datum (NAP)</td><td class="code">nap</td></tr>
+<tr><td>The North American Vertical Datum of 1988</td><td class="code">navd88</td></tr>
+<tr><td>National Geodetic Vertical Datum of 1929</td><td class="code">ngvd29</td></tr>
+<tr><td>Ohio River Datum</td><td class="code">ohioRd</td></tr>
+<tr><td>Other</td><td class="code">other</td></tr>
+<tr><td>Reference Low Water Level According to Danube Commission</td><td class="code">rlwlDonau</td></tr>
+<tr><td>Russian Normal Backwater Level</td><td class="code">rnbl</td></tr>
+<tr><td>Russian Project Water Level</td><td class="code">rpwl</td></tr>
+<tr><td>Station Datum</td><td class="code">stnd</td></tr>
+<tr><td>Tweede Algemene Waterpassing (TAW)</td><td class="code">taw</td></tr>
+<tr><td>To Be Determined</td><td class="code">tbd</td></tr>
+<tr><td>World Geodetic System 1984</td><td class="code">wgs84</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <div class="field-section" id="visitorMapName">
+            <div class="field-info">
+                <div class="field-name">visitorMapName<span class="field-alias">(Visitor Map Name)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="domain-description">
+                The visitor map type.
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Display Name</th><th>Code Value</th></tr>
+                </thead>
+                <tbody><tr><td>Auto Skills Center</td><td class="code">autoSkillsCenter</td></tr>
+<tr><td>Bank</td><td class="code">bank</td></tr>
+<tr><td>Base Exchange</td><td class="code">bx</td></tr>
+<tr><td>Child Development Center</td><td class="code">childDevelopmentCenter</td></tr>
+<tr><td>Combined Schools</td><td class="code">combinedSchools</td></tr>
+<tr><td>Commissary</td><td class="code">commissary</td></tr>
+<tr><td>Crafts Center</td><td class="code">craftsCenter</td></tr>
+<tr><td>Elementary School</td><td class="code">elementarySchool</td></tr>
+<tr><td>Gas Station</td><td class="code">gasStation</td></tr>
+<tr><td>Gym</td><td class="code">gym</td></tr>
+<tr><td>High School</td><td class="code">highSchool</td></tr>
+<tr><td>Hobby Center</td><td class="code">hobbyCenter</td></tr>
+<tr><td>Hospital</td><td class="code">hospital</td></tr>
+<tr><td>Laundromat</td><td class="code">laundromat</td></tr>
+<tr><td>Medical Clinic</td><td class="code">medicalClinic</td></tr>
+<tr><td>Middle School</td><td class="code">middleSchool</td></tr>
+<tr><td>Other</td><td class="code">other</td></tr>
+<tr><td>Outdoor Recreation Center</td><td class="code">outdoorRecreationCenter</td></tr>
+<tr><td>Passenger Terminal</td><td class="code">paxTerminal</td></tr>
+<tr><td>Post Office</td><td class="code">postOffice</td></tr>
+<tr><td>Shopette</td><td class="code">shopette</td></tr>
+<tr><td>Tours and Travel</td><td class="code">toursAndTravel</td></tr>
+<tr><td>Vehicle Inspection</td><td class="code">vehicleInspection</td></tr>
+<tr><td>Wood Skills Center</td><td class="code">woodSkillsCenter</td></tr>
+
+                </tbody>
+            </table></div>
+
+        <h2>Simple Fields (No Domain Constraints)</h2>
+        <p>The following fields do not have domain constraints and accept free-form input:</p>
+        <div class="field-section" id="OBJECTID">
+            <div class="field-info">
+                <div class="field-name">OBJECTID<span class="field-alias">(OBJECTID)</span><span class="field-type">OID</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="Shape">
+            <div class="field-info">
+                <div class="field-name">Shape<span class="field-alias">(Shape)</span><span class="field-type">Geometry</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="GlobalID">
+            <div class="field-info">
+                <div class="field-name">GlobalID<span class="field-alias">(GlobalID)</span><span class="field-type">GlobalID</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="addressNumber">
+            <div class="field-info">
+                <div class="field-name">addressNumber<span class="field-alias">(Address Number)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="addressNumberSuffix">
+            <div class="field-info">
+                <div class="field-name">addressNumberSuffix<span class="field-alias">(Address Number Suffix)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="alternateBuildingNumber">
+            <div class="field-info">
+                <div class="field-name">alternateBuildingNumber<span class="field-alias">(Alternate Building Number)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="alternateFeatureDescription">
+            <div class="field-info">
+                <div class="field-name">alternateFeatureDescription<span class="field-alias">(Alternate Feature Description)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="alternateFeatureName">
+            <div class="field-info">
+                <div class="field-name">alternateFeatureName<span class="field-alias">(Alternate Feature Name)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="areaSize">
+            <div class="field-info">
+                <div class="field-name">areaSize<span class="field-alias">(Area Size)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="buildingAddress">
+            <div class="field-info">
+                <div class="field-name">buildingAddress<span class="field-alias">(Building Address)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="buildingIdpk">
+            <div class="field-info">
+                <div class="field-name">buildingIdpk<span class="field-alias">(Primary Key Identifier)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="buildingNumber">
+            <div class="field-info">
+                <div class="field-name">buildingNumber<span class="field-alias">(Building Number)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="builtDate">
+            <div class="field-info">
+                <div class="field-name">builtDate<span class="field-alias">(Built Date)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="categoryCode">
+            <div class="field-info">
+                <div class="field-name">categoryCode<span class="field-alias">(Category Code)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="cityOrCommunityName">
+            <div class="field-info">
+                <div class="field-name">cityOrCommunityName<span class="field-alias">(City or MSAG Community Name)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="createDate">
+            <div class="field-info">
+                <div class="field-name">createDate<span class="field-alias">(Create Date)</span><span class="field-type">Date</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="creator">
+            <div class="field-info">
+                <div class="field-name">creator<span class="field-alias">(Creator)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="dataSource">
+            <div class="field-info">
+                <div class="field-name">dataSource<span class="field-alias">(Data Source)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="dataSteward">
+            <div class="field-info">
+                <div class="field-name">dataSteward<span class="field-alias">(Data Steward)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="dateEdited">
+            <div class="field-info">
+                <div class="field-name">dateEdited<span class="field-alias">(Date Edited)</span><span class="field-type">Date</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="editor">
+            <div class="field-info">
+                <div class="field-name">editor<span class="field-alias">(Editor)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="elevation">
+            <div class="field-info">
+                <div class="field-name">elevation<span class="field-alias">(Elevation)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="facilityConditionIndex">
+            <div class="field-info">
+                <div class="field-name">facilityConditionIndex<span class="field-alias">(Facility Condition Index)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="facilityGrossSqFt">
+            <div class="field-info">
+                <div class="field-name">facilityGrossSqFt<span class="field-alias">(Facility Gross Sq Ft)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="facilityNumber">
+            <div class="field-info">
+                <div class="field-name">facilityNumber<span class="field-alias">(Facility Number)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="featureDescription">
+            <div class="field-info">
+                <div class="field-name">featureDescription<span class="field-alias">(Feature Description)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="featureName">
+            <div class="field-info">
+                <div class="field-name">featureName<span class="field-alias">(Feature Name)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="flexFieldDt">
+            <div class="field-info">
+                <div class="field-name">flexFieldDt<span class="field-alias">(Flex Field Date Time)</span><span class="field-type">Date</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="flexFieldInt">
+            <div class="field-info">
+                <div class="field-name">flexFieldInt<span class="field-alias">(Flex Field Integer)</span><span class="field-type">Integer</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="flexFieldRealNum">
+            <div class="field-info">
+                <div class="field-name">flexFieldRealNum<span class="field-alias">(Flex Field Real Number)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="flexFieldStr">
+            <div class="field-info">
+                <div class="field-name">flexFieldStr<span class="field-alias">(Flex Field String)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="geoloc">
+            <div class="field-info">
+                <div class="field-name">geoloc<span class="field-alias">(GEOLOC)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="heightMax">
+            <div class="field-info">
+                <div class="field-name">heightMax<span class="field-alias">(Height Max)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="latitude">
+            <div class="field-info">
+                <div class="field-name">latitude<span class="field-alias">(Latitude)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="longitude">
+            <div class="field-info">
+                <div class="field-name">longitude<span class="field-alias">(Longitude)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="mediaId">
+            <div class="field-info">
+                <div class="field-name">mediaId<span class="field-alias">(Media Identifier)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="metaNotes">
+            <div class="field-info">
+                <div class="field-name">metaNotes<span class="field-alias">(Meta Notes)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="metadataId">
+            <div class="field-info">
+                <div class="field-name">metadataId<span class="field-alias">(Metadata Identifier)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="mgrs">
+            <div class="field-info">
+                <div class="field-name">mgrs<span class="field-alias">(Military Grid Reference System)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="narrative">
+            <div class="field-info">
+                <div class="field-name">narrative<span class="field-alias">(Narrative)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="perimeterSize">
+            <div class="field-info">
+                <div class="field-name">perimeterSize<span class="field-alias">(Perimeter Size)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="releasePolicy">
+            <div class="field-info">
+                <div class="field-name">releasePolicy<span class="field-alias">(Release Policy)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="roadName">
+            <div class="field-info">
+                <div class="field-name">roadName<span class="field-alias">(Road Name)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="roadSuffix">
+            <div class="field-info">
+                <div class="field-name">roadSuffix<span class="field-alias">(Road Suffix)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="rpaPredomCurrentUseCatCode">
+            <div class="field-info">
+                <div class="field-name">rpaPredomCurrentUseCatCode<span class="field-alias">(RPA Predominant Current Use CAT Code)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="rpnid">
+            <div class="field-info">
+                <div class="field-name">rpnid<span class="field-alias">(Real Property Network Identifier)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="rpuid">
+            <div class="field-info">
+                <div class="field-name">rpuid<span class="field-alias">(Real Property Unique Identifier)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="sdsId">
+            <div class="field-info">
+                <div class="field-name">sdsId<span class="field-alias">(Globally Unique Identifier)</span><span class="field-type">GUID</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="wacInnrCode">
+            <div class="field-info">
+                <div class="field-name">wacInnrCode<span class="field-alias">(WAC INNR Code)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="zipCode">
+            <div class="field-info">
+                <div class="field-name">zipCode<span class="field-alias">(Zip Code)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="zipCodePlusFour">
+            <div class="field-info">
+                <div class="field-name">zipCodePlusFour<span class="field-alias">(Zip Code + 4)</span><span class="field-type">String</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="Shape_Length">
+            <div class="field-info">
+                <div class="field-name">Shape_Length<span class="field-alias">(Shape_Length)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <div class="field-section" id="Shape_Area">
+            <div class="field-info">
+                <div class="field-name">Shape_Area<span class="field-alias">(Shape_Area)</span><span class="field-type">Double</span></div>
+            </div>
+            <div class="no-domain">
+                This field accepts free-form input with no predefined constraints.
+            </div></div>
+
+        <h2>File References</h2>
+        <ul>
+            <li><strong>Complete Metadata:</strong> <code>building_a_complete_metadata.csv</code> - All 32 metadata properties for each field</li>
+            <li><strong>Detailed Domains:</strong> <code>building_a_domains_detailed.csv</code> - All domain values with descriptions</li>
+            <li><strong>Columnar Format:</strong> <code>building_a_domains_columnar.csv</code> - Pick lists in column format</li>
+            <li><strong>All Fields Summary:</strong> <code>building_a_all_fields.csv</code> - Overview of all fields</li>
+        </ul>
+
+        <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #7f8c8d; text-align: center;">
+            <p>Generated from geodatabase XML schema • Building_A Feature Class Complete Reference</p>
+            <p>Total: 85 fields (32 with domains, 53 without domains)</p>
+        </footer>
+    </div>
+</body>
+</html>

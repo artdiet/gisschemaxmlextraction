@@ -1,0 +1,17 @@
+# Exclude source XML (too large for GitHub)
+DATABASE_EXPORT.XML
+
+# Exclude temporary files
+*.tmp
+*.log
+__pycache__/
+*.pyc
+
+# Keep all generated deliverables
+!building_a_*.csv
+!building_a_*.html
+!CSV_READING_GUIDE.*
+!README.md
+!LICENSE
+!*.py
+!*.md

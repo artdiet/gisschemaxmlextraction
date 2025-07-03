@@ -1,0 +1,86 @@
+alias_name,default_value,default_value_type,domain_description,domain_field_type,domain_max_value,domain_max_value_type,domain_merge_policy,domain_min_value,domain_min_value_type,domain_name,domain_owner,domain_split_policy,domain_type,domain_values_count,editable,geometry_avg_points,geometry_grid_size,geometry_has_m,geometry_has_z,geometry_type,has_domain,has_geometry_def,is_nullable,length,model_name,name,precision,required,scale,type,xsi_type
+,,,,,,,,,,,,,,,false,,,,,,false,false,false,4,OBJECTID,OBJECTID,0,true,0,esriFieldTypeOID,esri:Field
+,,,,,,,,,,,,,,,,0,79,false,true,esriGeometryPolygon,false,true,true,0,Shape,Shape,0,true,0,esriFieldTypeGeometry,esri:Field
+GlobalID,,,,,,,,,,,,,,,false,,,,,,false,false,false,38,GlobalID,GlobalID,0,true,0,esriFieldTypeGlobalID,esri:Field
+Address Number,,,,,,,,,,,,,,,,,,,,,false,false,true,10,addressNumber,addressNumber,0,,0,esriFieldTypeString,esri:Field
+Address Number Suffix,,,,,,,,,,,,,,,,,,,,,false,false,true,4,addressNumberSuffix,addressNumberSuffix,0,,0,esriFieldTypeString,esri:Field
+Alternate Building Number,,,,,,,,,,,,,,,,,,,,,false,false,true,16,alternateBuildingNumber,alternateBuildingNumber,0,,0,esriFieldTypeString,esri:Field
+Alternate Feature Description,,,,,,,,,,,,,,,,,,,,,false,false,true,255,alternateFeatureDescription,alternateFeatureDescription,0,,0,esriFieldTypeString,esri:Field
+Alternate Feature Name,,,,,,,,,,,,,,,,,,,,,false,false,true,80,alternateFeatureName,alternateFeatureName,0,,0,esriFieldTypeString,esri:Field
+Area Size,,,,,,,,,,,,,,,,,,,,,false,false,true,8,areaSize,areaSize,0,,0,esriFieldTypeDouble,esri:Field
+Area Size UOM,,,The area unit of measure mandated in DoD IT Standards Registry (DISR).,esriFieldTypeString,,,esriMPTDefaultValue,,,GsipAreaUom,,esriSPTDefaultValue,esri:CodedValueDomain,13,,,,,,,true,false,true,18,areaSizeUom,areaSizeUom,0,,0,esriFieldTypeString,esri:Field
+Building Address,,,,,,,,,,,,,,,,,,,,,false,false,true,30,buildingAddress,buildingAddress,0,,0,esriFieldTypeString,esri:Field
+Building Condition,,,The structural condition and state of repair of a building or structure.,esriFieldTypeString,,,esriMPTDefaultValue,,,StructuralCondition,,esriSPTDefaultValue,esri:CodedValueDomain,35,,,,,,,true,false,true,17,buildingCondition,buildingCondition,0,,0,esriFieldTypeString,esri:Field
+Building Condition Index,,,Condition value from zero to 100 computed after the inspection of the SMS feature. If there is no SMS condition value select -1 to represent Not Evaluated.,esriFieldTypeInteger,100,xs:int,esriMPTDefaultValue,-1,xs:int,SmsConditionIndex,,esriSPTDefaultValue,esri:RangeDomain,,,,,,,,true,false,true,4,buildingConditionIndex,buildingConditionIndex,0,,0,esriFieldTypeInteger,esri:Field
+Building Custodial Type,,,"The type of custodian for the building: level 1 (prestige), level 2 (basic), etc.",esriFieldTypeString,,,esriMPTDefaultValue,,,CustodialType,,esriSPTDefaultValue,esri:CodedValueDomain,12,,,,,,,true,false,true,23,buildingCustodialType,buildingCustodialType,0,,0,esriFieldTypeString,esri:Field
+Primary Key Identifier,TBD,xs:string,,,,,,,,,,,,,,,,,,,false,false,false,40,buildingIdpk,buildingIdpk,0,,0,esriFieldTypeString,esri:Field
+Building Number,,,,,,,,,,,,,,,,,,,,,false,false,true,16,buildingNumber,buildingNumber,0,,0,esriFieldTypeString,esri:Field
+Building Op Status,,,The state of usability of the feature.,esriFieldTypeString,,,esriMPTDefaultValue,,,OperationalStatus,,esriSPTDefaultValue,esri:CodedValueDomain,16,,,,,,,true,false,true,17,buildingOpStatus,buildingOpStatus,0,,0,esriFieldTypeString,esri:Field
+Built Date,,,,,,,,,,,,,,,,,,,,,false,false,true,8,builtDate,builtDate,0,,0,esriFieldTypeString,esri:Field
+Category Code,,,,,,,,,,,,,,,,,,,,,false,false,true,6,categoryCode,categoryCode,0,,0,esriFieldTypeString,esri:Field
+City or MSAG Community Name,,,,,,,,,,,,,,,,,,,,,false,false,true,32,cityOrCommunityName,cityOrCommunityName,0,,0,esriFieldTypeString,esri:Field
+Country,,,The country that owns that specific feature.,esriFieldTypeString,,,esriMPTDefaultValue,,,CountryCode,,esriSPTDefaultValue,esri:CodedValueDomain,274,,,,,,,true,false,true,3,country,country,0,,0,esriFieldTypeString,esri:Field
+Create Date,,,,,,,,,,,,,,,,,,,,,false,false,true,8,createDate,createDate,0,,0,esriFieldTypeDate,esri:Field
+Creator,,,,,,,,,,,,,,,,,,,,,false,false,true,255,creator,creator,0,,0,esriFieldTypeString,esri:Field
+Data Collection,,,"Describes how the data was acquired, created or generated.",esriFieldTypeString,,,esriMPTDefaultValue,,,CollectionMethod,,esriSPTDefaultValue,esri:CodedValueDomain,31,,,,,,,true,false,true,64,dataCollection,dataCollection,0,,0,esriFieldTypeString,esri:Field
+Data Source,,,,,,,,,,,,,,,,,,,,,false,false,true,100,dataSource,dataSource,0,,0,esriFieldTypeString,esri:Field
+Data Steward,,,,,,,,,,,,,,,,,,,,,false,false,true,20,dataSteward,dataSteward,0,,0,esriFieldTypeString,esri:Field
+Date Edited,,,,,,,,,,,,,,,,,,,,,false,false,true,8,dateEdited,dateEdited,0,,0,esriFieldTypeDate,esri:Field
+Editor,,,,,,,,,,,,,,,,,,,,,false,false,true,255,editor,editor,0,,0,esriFieldTypeString,esri:Field
+Elevation,,,,,,,,,,,,,,,,,,,,,false,false,true,8,elevation,elevation,0,,0,esriFieldTypeDouble,esri:Field
+Elevation Unit of Measure,,,The length unit of measure mandated in DoD IT Standards Registry (DISR).,esriFieldTypeString,,,esriMPTDefaultValue,,,GsipLengthUom,,esriSPTDefaultValue,esri:CodedValueDomain,33,,,,,,,true,false,true,17,elevationUom,elevationUom,0,,0,esriFieldTypeString,esri:Field
+Facility Condition Code,,,The physical capability of a facility to accommodate the currently approved activity/function.,esriFieldTypeString,,,esriMPTDefaultValue,,,FacilityConditionCode,,esriSPTDefaultValue,esri:CodedValueDomain,6,,,,,,,true,false,true,20,facilityConditionCode,facilityConditionCode,0,,0,esriFieldTypeString,esri:Field
+Facility Condition Index,,,,,,,,,,,,,,,,,,,,,false,false,true,8,facilityConditionIndex,facilityConditionIndex,0,,0,esriFieldTypeDouble,esri:Field
+Facility Gross Sq Ft,,,,,,,,,,,,,,,,,,,,,false,false,true,8,facilityGrossSqFt,facilityGrossSqFt,0,,0,esriFieldTypeDouble,esri:Field
+Facility Gross Sq Ft UOM,,,The area unit of measure mandated in DoD IT Standards Registry (DISR).,esriFieldTypeString,,,esriMPTDefaultValue,,,GsipAreaUom,,esriSPTDefaultValue,esri:CodedValueDomain,13,,,,,,,true,false,true,18,facilityGrossSqFtUom,facilityGrossSqFtUom,0,,0,esriFieldTypeString,esri:Field
+Facility Number,,,,,,,,,,,,,,,,,,,,,false,false,true,20,facilityNumber,facilityNumber,0,,0,esriFieldTypeString,esri:Field
+Feature Description,,,,,,,,,,,,,,,,,,,,,false,false,true,2000,featureDescription,featureDescription,0,,0,esriFieldTypeString,esri:Field
+Feature Name,,,,,,,,,,,,,,,,,,,,,false,false,true,80,featureName,featureName,0,,0,esriFieldTypeString,esri:Field
+Flex Field Date Time,,,,,,,,,,,,,,,,,,,,,false,false,true,8,flexFieldDt,flexFieldDt,0,,0,esriFieldTypeDate,esri:Field
+Flex Field Integer,,,,,,,,,,,,,,,,,,,,,false,false,true,4,flexFieldInt,flexFieldInt,0,,0,esriFieldTypeInteger,esri:Field
+Flex Field Real Number,,,,,,,,,,,,,,,,,,,,,false,false,true,8,flexFieldRealNum,flexFieldRealNum,0,,0,esriFieldTypeDouble,esri:Field
+Flex Field String,,,,,,,,,,,,,,,,,,,,,false,false,true,255,flexFieldStr,flexFieldStr,0,,0,esriFieldTypeString,esri:Field
+Flex Field Boolean,,,An indication of a choice between yes or no.,esriFieldTypeString,,,esriMPTDefaultValue,,,sdsYesOrNo,,esriSPTDefaultValue,esri:CodedValueDomain,3,,,,,,,true,false,true,3,flexFieldYn,flexFieldYn,0,,0,esriFieldTypeString,esri:Field
+GEOLOC,,,,,,,,,,,,,,,,,,,,,false,false,true,4,geoloc,geoloc,0,,0,esriFieldTypeString,esri:Field
+Has Giant Voice,,,An indication of a choice between yes or no.,esriFieldTypeString,,,esriMPTDefaultValue,,,sdsYesOrNo,,esriSPTDefaultValue,esri:CodedValueDomain,3,,,,,,,true,false,true,3,hasGiantVoice,hasGiantVoice,0,,0,esriFieldTypeString,esri:Field
+has Mass Notification Device,,,An indication of a choice between yes or no.,esriFieldTypeString,,,esriMPTDefaultValue,,,sdsYesOrNo,,esriSPTDefaultValue,esri:CodedValueDomain,3,,,,,,,true,false,true,3,hasMassNotificationDevice,hasMassNotificationDevice,0,,0,esriFieldTypeString,esri:Field
+Height Max,,,,,,,,,,,,,,,,,,,,,false,false,true,8,heightMax,heightMax,0,,0,esriFieldTypeDouble,esri:Field
+Height Max Uom,,,The length unit of measure mandated in DoD IT Standards Registry (DISR).,esriFieldTypeString,,,esriMPTDefaultValue,,,GsipLengthUom,,esriSPTDefaultValue,esri:CodedValueDomain,33,,,,,,,true,false,true,17,heightMaxUom,heightMaxUom,0,,0,esriFieldTypeString,esri:Field
+Installation Identifier,,,Installation identifier assigned to the Installation by real property.,esriFieldTypeString,,,esriMPTDefaultValue,,,InstallationId,,esriSPTDefaultValue,esri:CodedValueDomain,322,,,,,,,true,false,true,8,installationId,installationId,0,,0,esriFieldTypeString,esri:Field
+Installation Name,,,The name of the installation that is associated with the installation ID defined by Real Property.,esriFieldTypeString,,,esriMPTDefaultValue,,,InstallationName,,esriSPTDefaultValue,esri:CodedValueDomain,291,,,,,,,true,false,true,37,installationName,installationName,0,,0,esriFieldTypeString,esri:Field
+Is Heritage Asset,,,An indication of a choice between yes or no.,esriFieldTypeString,,,esriMPTDefaultValue,,,sdsYesOrNo,,esriSPTDefaultValue,esri:CodedValueDomain,3,,,,,,,true,false,true,3,isHeritageAsset,isHeritageAsset,0,,0,esriFieldTypeString,esri:Field
+Is Real Property,,,An indication of a choice between yes or no.,esriFieldTypeString,,,esriMPTDefaultValue,,,sdsYesOrNo,,esriSPTDefaultValue,esri:CodedValueDomain,3,,,,,,,true,false,true,3,isRealProperty,isRealProperty,0,,0,esriFieldTypeString,esri:Field
+Latitude,,,,,,,,,,,,,,,,,,,,,false,false,true,8,latitude,latitude,0,,0,esriFieldTypeDouble,esri:Field
+Longitude,,,,,,,,,,,,,,,,,,,,,false,false,true,8,longitude,longitude,0,,0,esriFieldTypeDouble,esri:Field
+Major Command,,,Service Major Command of the installation.,esriFieldTypeString,,,esriMPTDefaultValue,,,MajorCommand,,esriSPTDefaultValue,esri:CodedValueDomain,16,,,,,,,true,false,true,7,majorCommand,majorCommand,0,,0,esriFieldTypeString,esri:Field
+Media Identifier,,,,,,,,,,,,,,,,,,,,,false,false,true,255,mediaId,mediaId,0,,0,esriFieldTypeString,esri:Field
+Meta Notes,,,,,,,,,,,,,,,,,,,,,false,false,true,255,metaNotes,metaNotes,0,,0,esriFieldTypeString,esri:Field
+Metadata Identifier,,,,,,,,,,,,,,,,,,,,,false,false,true,80,metadataId,metadataId,0,,0,esriFieldTypeString,esri:Field
+Military Grid Reference System,,,,,,,,,,,,,,,,,,,,,false,false,true,20,mgrs,mgrs,0,,0,esriFieldTypeString,esri:Field
+Mission Dependency Index,,,Condition value from zero to 100 computed after the inspection of the SMS feature. If there is no SMS condition value select -1 to represent Not Evaluated.,esriFieldTypeInteger,100,xs:int,esriMPTDefaultValue,-1,xs:int,SmsConditionIndex,,esriSPTDefaultValue,esri:RangeDomain,,,,,,,,true,false,true,4,missionDependencyIndex,missionDependencyIndex,0,,0,esriFieldTypeInteger,esri:Field
+Narrative,,,,,,,,,,,,,,,,,,,,,false,false,true,255,narrative,narrative,0,,0,esriFieldTypeString,esri:Field
+Owner,,,The DoD Component or other entity that owns the asset.,esriFieldTypeString,,,esriMPTDefaultValue,,,OwnerType,,esriSPTDefaultValue,esri:CodedValueDomain,26,,,,,,,true,false,true,22,owner,owner,0,,0,esriFieldTypeString,esri:Field
+Perimeter Size,,,,,,,,,,,,,,,,,,,,,false,false,true,8,perimeterSize,perimeterSize,0,,0,esriFieldTypeDouble,esri:Field
+Perimeter Size UOM,,,The length unit of measure mandated in DoD IT Standards Registry (DISR).,esriFieldTypeString,,,esriMPTDefaultValue,,,GsipLengthUom,,esriSPTDefaultValue,esri:CodedValueDomain,33,,,,,,,true,false,true,17,perimeterSizeUom,perimeterSizeUom,0,,0,esriFieldTypeString,esri:Field
+Release Policy,,,,,,,,,,,,,,,,,,,,,false,false,true,40,releasePolicy,releasePolicy,0,,0,esriFieldTypeString,esri:Field
+Road Name,,,,,,,,,,,,,,,,,,,,,false,false,true,255,roadName,roadName,0,,0,esriFieldTypeString,esri:Field
+Road Post Directional,,,"The direction including both the four cardinal and four intercardinal, or ordinal, directions.",esriFieldTypeString,,,esriMPTDefaultValue,,,DirectionalIndicator,,esriSPTDefaultValue,esri:CodedValueDomain,9,,,,,,,true,false,true,3,roadPostDirectional,roadPostDirectional,0,,0,esriFieldTypeString,esri:Field
+Road Prefix Directional,,,"The direction including both the four cardinal and four intercardinal, or ordinal, directions.",esriFieldTypeString,,,esriMPTDefaultValue,,,DirectionalIndicator,,esriSPTDefaultValue,esri:CodedValueDomain,9,,,,,,,true,false,true,3,roadPrefixDirectional,roadPrefixDirectional,0,,0,esriFieldTypeString,esri:Field
+Road Suffix,,,,,,,,,,,,,,,,,,,,,false,false,true,10,roadSuffix,roadSuffix,0,,0,esriFieldTypeString,esri:Field
+Real Property Interest,,,The type of legal interest that the DoD holds in the Real Property Asset (RPA).,esriFieldTypeString,,,esriMPTDefaultValue,,,RpaInterestType,,esriSPTDefaultValue,esri:CodedValueDomain,13,,,,,,,true,false,true,4,rpInterest,rpInterest,0,,0,esriFieldTypeString,esri:Field
+RPA Construction Type,,,The code used to identify the type of construction for the Real Property Asset (RPA).,esriFieldTypeString,,,esriMPTDefaultValue,,,RpaConstructionTypeCode,,esriSPTDefaultValue,esri:CodedValueDomain,5,,,,,,,true,false,true,4,rpaConstructionType,rpaConstructionType,0,,0,esriFieldTypeString,esri:Field
+RPA Predominant Current Use CAT Code,,,,,,,,,,,,,,,,,,,,,false,false,true,6,rpaPredomCurrentUseCatCode,rpaPredomCurrentUseCatCode,0,,0,esriFieldTypeString,esri:Field
+Real Property Asset Type,,,"A hierarchical scheme of real property types and functions that serves as the framework for identifying, categorizing and analyzing the DoD's inventory of land and facilities around the world. Real Property asset types are categorized as Land, Building, Structure, and Linear Structure, used to link assets to the Real Property APSR (AFI 32-9005 16 April 2019).",esriFieldTypeString,,,esriMPTDefaultValue,,,RpaTypeCode,,esriSPTDefaultValue,esri:CodedValueDomain,4,,,,,,,true,false,true,2,rpaType,rpaType,0,,0,esriFieldTypeString,esri:Field
+Real Property Network Identifier,,,,,,,,,,,,,,,,,,,,,false,false,true,4,rpnid,rpnid,0,,0,esriFieldTypeString,esri:Field
+Real Property Site Unique Identifier,,,The real property site unique identifier.,esriFieldTypeInteger,,,esriMPTDefaultValue,,,Rpsuid,,esriSPTDefaultValue,esri:CodedValueDomain,2076,,,,,,,true,false,true,4,rpsuid,rpsuid,0,,0,esriFieldTypeInteger,esri:Field
+Real Property Unique Identifier,,,,,,,,,,,,,,,,,,,,,false,false,true,18,rpuid,rpuid,0,,0,esriFieldTypeString,esri:Field
+Globally Unique Identifier,,,,,,,,,,,,,,,,,,,,,false,false,true,38,sdsId,sdsId,0,,0,esriFieldTypeGUID,esri:Field
+Site ID,,,The code assigned to the Site by the Service/WHS that has inventory control.,esriFieldTypeString,,,esriMPTDefaultValue,,,SiteId,,esriSPTDefaultValue,esri:CodedValueDomain,2099,,,,,,,true,false,true,8,siteId,siteId,0,,0,esriFieldTypeString,esri:Field
+State or Territory Name,,,The abbreviation of all of the states and territories.,esriFieldTypeString,,,esriMPTDefaultValue,,,StateOrTerritory,,esriSPTDefaultValue,esri:CodedValueDomain,68,,,,,,,true,false,true,3,stateName,stateName,0,,0,esriFieldTypeString,esri:Field
+Vertical Datum Type,,,The type of vertical reference datum used to collect the z location values.,esriFieldTypeString,,,esriMPTDefaultValue,,,VerticalDatum,,esriSPTDefaultValue,esri:CodedValueDomain,46,,,,,,,true,false,true,13,verticalDatumType,verticalDatumType,0,,0,esriFieldTypeString,esri:Field
+Visitor Map Name,,,The visitor map type.,esriFieldTypeString,,,esriMPTDefaultValue,,,VisitorMapType,,esriSPTDefaultValue,esri:CodedValueDomain,24,,,,,,,true,false,true,23,visitorMapName,visitorMapName,0,,0,esriFieldTypeString,esri:Field
+WAC INNR Code,,,,,,,,,,,,,,,,,,,,,false,false,true,10,wacInnrCode,wacInnrCode,0,,0,esriFieldTypeString,esri:Field
+Zip Code,,,,,,,,,,,,,,,,,,,,,false,false,true,5,zipCode,zipCode,0,,0,esriFieldTypeString,esri:Field
+Zip Code + 4,,,,,,,,,,,,,,,,,,,,,false,false,true,4,zipCodePlusFour,zipCodePlusFour,0,,0,esriFieldTypeString,esri:Field
+,,,,,,,,,,,,,,,false,,,,,,false,false,true,8,Shape_Length,Shape_Length,0,true,0,esriFieldTypeDouble,esri:Field
+,,,,,,,,,,,,,,,false,,,,,,false,false,true,8,Shape_Area,Shape_Area,0,true,0,esriFieldTypeDouble,esri:Field

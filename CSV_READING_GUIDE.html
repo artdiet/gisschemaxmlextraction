@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV File Reading Guide for GIS Team</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+        }
+        .quick-ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .quick-ref-table th {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #2980b9;
+            font-weight: bold;
+        }
+        .quick-ref-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        .quick-ref-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .quick-ref-table tr:hover {
+            background-color: #f1f8ff;
+        }
+        .file-name {
+            font-family: 'Courier New', monospace;
+            background-color: #f4f4f4;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+        .highlight-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .info-box {
+            background-color: #e8f5e8;
+            border: 1px solid #27ae60;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #27ae60;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .qa-section {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .qa-question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .qa-answer {
+            margin-bottom: 15px;
+            padding-left: 15px;
+        }
+        .tip-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .column-list {
+            columns: 2;
+            column-gap: 30px;
+            margin: 15px 0;
+        }
+        .column-list li {
+            break-inside: avoid;
+            margin-bottom: 8px;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            background-color: #ecf0f1;
+            margin: 30px 0;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            text-align: center;
+            font-style: italic;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="icon">📊</span> CSV File Reading Guide for GIS Team</h1>
+        
+        <div class="toc">
+            <h3>Quick Navigation</h3>
+            <ul>
+                <li><a href="#quick-reference">Quick Reference - Which File to Use</a></li>
+                <li><a href="#file-descriptions">Detailed File Descriptions</a></li>
+                <li><a href="#common-questions">Common Questions & Answers</a></li>
+                <li><a href="#integration-tips">Integration Tips</a></li>
+            </ul>
+        </div>
+
+        <section id="quick-reference">
+            <h2><span class="icon">🎯</span> Quick Reference - Which File to Use</h2>
+            
+            <table class="quick-ref-table">
+                <thead>
+                    <tr>
+                        <th>Use Case</th>
+                        <th>File to Use</th>
+                        <th>Size</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="icon">📖</span> <strong>Browse/Reference</strong></td>
+                        <td><span class="file-name">building_a_complete_manual.html</span></td>
+                        <td>91KB</td>
+                        <td>Interactive web guide with all fields</td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">🔧</span> <strong>Data Integration</strong></td>
+                        <td><span class="file-name">building_a_domains_detailed.csv</span></td>
+                        <td>884KB</td>
+                        <td>Complete domain data for import</td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">📊</span> <strong>Foundry Import</strong></td>
+                        <td><span class="file-name">building_a_domains_columnar.csv</span></td>
+                        <td>323KB</td>
+                        <td>Pick lists in column format</td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">⚙️</span> <strong>Technical Specs</strong></td>
+                        <td><span class="file-name">building_a_complete_metadata.csv</span></td>
+                        <td>16KB</td>
+                        <td>All field properties & constraints</td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon">📋</span> <strong>Field Overview</strong></td>
+                        <td><span class="file-name">building_a_all_fields.csv</span></td>
+                        <td>11KB</td>
+                        <td>Summary of all 85 fields</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="file-descriptions">
+            <h2><span class="icon">📁</span> File Descriptions & How to Read</h2>
+
+            <h3><span class="icon">📖</span> 1. building_a_complete_manual.html - START HERE</h3>
+            <div class="info-box">
+                <strong>Best for:</strong> Browsing and understanding the data structure
+            </div>
+            
+            <p><strong>How to use:</strong></p>
+            <ul>
+                <li>Open in any web browser (Chrome, Firefox, Safari)</li>
+                <li>Use Table of Contents to jump to specific fields</li>
+                <li>Click field names to see all valid options</li>
+                <li>Large domains show first 20 values + note about complete data</li>
+            </ul>
+
+            <p><strong>What you'll see:</strong></p>
+            <ul>
+                <li>Field descriptions from the original GIS schema</li>
+                <li>Pick list options with display names and codes</li>
+                <li>Field types (String, Integer, etc.)</li>
+                <li>Range constraints for numeric fields</li>
+            </ul>
+
+            <h3><span class="icon">🔧</span> 2. building_a_domains_detailed.csv - For Data Integration</h3>
+            <div class="info-box">
+                <strong>Best for:</strong> Setting up data validation rules and import processes
+            </div>
+
+            <p><strong>Structure:</strong></p>
+            <div class="code-block">
+Field Name | Field Alias | Domain Name | Domain Description | Domain Type | Option Name | Option Code | Min Value | Max Value
+            </div>
+
+            <p><strong>How to read:</strong></p>
+            <ul>
+                <li><strong>One row per domain option</strong> (not per field)</li>
+                <li><strong>Field Name</strong>: Technical field name (e.g., <code>buildingCondition</code>)</li>
+                <li><strong>Field Alias</strong>: Human-readable name (e.g., "Building Condition")</li>
+                <li><strong>Domain Description</strong>: Explanation of what the field represents</li>
+                <li><strong>Option Name</strong>: Display value (e.g., "Good")</li>
+                <li><strong>Option Code</strong>: Database value (e.g., "good")</li>
+            </ul>
+
+            <p><strong>Example rows:</strong></p>
+            <div class="code-block">
+buildingCondition,Building Condition,StructuralCondition,"The structural condition...",CodedValue,Good,good,,
+buildingCondition,Building Condition,StructuralCondition,"The structural condition...",CodedValue,Fair,fair,,
+buildingCondition,Building Condition,StructuralCondition,"The structural condition...",CodedValue,Poor,poor,,
+            </div>
+
+            <div class="highlight-box">
+                <strong>📌 Key Point:</strong> To get all options for one field, filter by the "Field Name" column
+            </div>
+
+            <h3><span class="icon">📊</span> 3. building_a_domains_columnar.csv - For Foundry/System Import</h3>
+            <div class="info-box">
+                <strong>Best for:</strong> Direct import into data collection systems
+            </div>
+
+            <p><strong>Structure:</strong></p>
+            <ul>
+                <li><strong>Column headers</strong> = Field names</li>
+                <li><strong>Rows below</strong> = Valid options for each field</li>
+                <li><strong>Empty cells</strong> = Field has fewer options than others</li>
+            </ul>
+
+            <p><strong>How to read:</strong></p>
+            <div class="code-block">
+buildingCondition,country,installationId,...
+Good,United States (US),aawz - ACC AMIC,...
+Fair,Germany (DE),abaa - Abston ANGS,...
+Poor,France (FR),acjp - Los Angeles AFB,...
+            </div>
+
+            <div class="highlight-box">
+                <strong>📌 Key Point:</strong> Read vertically - each column shows all valid values for that field
+            </div>
+
+            <h3><span class="icon">⚙️</span> 4. building_a_complete_metadata.csv - For Technical Analysis</h3>
+            <div class="info-box">
+                <strong>Best for:</strong> Understanding field specifications and constraints
+            </div>
+
+            <p><strong>Structure:</strong></p>
+            <ul>
+                <li><strong>One row per field</strong> (85 rows total)</li>
+                <li><strong>32 columns</strong> with all technical properties</li>
+            </ul>
+
+            <p><strong>Key columns:</strong></p>
+            <div class="column-list">
+                <ul>
+                    <li><code>name</code>: Field name</li>
+                    <li><code>alias_name</code>: Display name</li>
+                    <li><code>type</code>: Data type (esriFieldTypeString, etc.)</li>
+                    <li><code>length</code>: Maximum field length</li>
+                    <li><code>is_nullable</code>: Can be empty (true/false)</li>
+                    <li><code>required</code>: Must have value (true/false)</li>
+                    <li><code>has_domain</code>: Has pick list (true/false)</li>
+                    <li><code>domain_description</code>: What the field represents</li>
+                    <li><code>domain_values_count</code>: Number of pick list options</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <strong>📌 Key Point:</strong> This tells you HOW to structure the field, not WHAT values it can contain
+            </div>
+
+            <h3><span class="icon">📋</span> 5. building_a_all_fields.csv - For Quick Overview</h3>
+            <div class="info-box">
+                <strong>Best for:</strong> Getting a summary of all fields and their constraints
+            </div>
+
+            <p><strong>Structure:</strong></p>
+            <div class="code-block">
+Field Name | Field Alias | Field Type | Has Domain | Domain Name | Domain Type | Domain Description | Sample Values
+            </div>
+
+            <p><strong>How to read:</strong></p>
+            <ul>
+                <li><strong>Has Domain</strong>: "Yes" = has pick list, "No" = free text/numeric</li>
+                <li><strong>Sample Values</strong>: First few options for quick reference</li>
+                <li><strong>Domain Description</strong>: What the field is used for</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>📌 Key Point:</strong> Good starting point to understand which fields need pick lists
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="common-questions">
+            <h2><span class="icon">❓</span> Common Questions & Answers</h2>
+
+            <div class="qa-section">
+                <div class="qa-question">Q: How do I find all valid values for the "country" field?</div>
+                <div class="qa-answer">
+                    <strong>A:</strong> Two options:
+                    <ol>
+                        <li><strong>HTML Manual</strong>: Open HTML file, click "Country" in table of contents</li>
+                        <li><strong>CSV</strong>: Open <span class="file-name">building_a_domains_detailed.csv</span>, filter by Field Name = "country"</li>
+                    </ol>
+                </div>
+
+                <div class="qa-question">Q: Which fields require pick lists vs. free text?</div>
+                <div class="qa-answer">
+                    <strong>A:</strong> Open <span class="file-name">building_a_all_fields.csv</span>, look at "Has Domain" column:
+                    <ul>
+                        <li><strong>"Yes"</strong> = Must use pick list values</li>
+                        <li><strong>"No"</strong> = Free text/numeric input allowed</li>
+                    </ul>
+                </div>
+
+                <div class="qa-question">Q: What's the difference between Option Name and Option Code?</div>
+                <div class="qa-answer">
+                    <strong>A:</strong>
+                    <ul>
+                        <li><strong>Option Name</strong>: What users see ("United States")</li>
+                        <li><strong>Option Code</strong>: What gets stored in database ("usa")</li>
+                    </ul>
+                </div>
+
+                <div class="qa-question">Q: How many total pick list options are there?</div>
+                <div class="qa-answer">
+                    <strong>A:</strong> The system has <strong>740 total domain definitions</strong> across all fields. Building_A uses <strong>32 of these domains</strong>.
+                </div>
+
+                <div class="qa-question">Q: Which fields have the most options?</div>
+                <div class="qa-answer">
+                    <strong>A:</strong> From the data:
+                    <ul>
+                        <li><strong>country</strong>: 274 options (all countries)</li>
+                        <li><strong>installationId</strong>: 322 options (military installations)</li>
+                        <li><strong>rpsuid</strong>: 2,076 options (site identifiers)</li>
+                        <li><strong>siteId</strong>: 2,099 options (site codes)</li>
+                    </ul>
+                </div>
+
+                <div class="qa-question">Q: Are these descriptions from the original GIS system?</div>
+                <div class="qa-answer">
+                    <strong>A:</strong> <strong>Yes</strong> - All domain descriptions are extracted directly from the original geodatabase XML schema, not generated content.
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="integration-tips">
+            <h2><span class="icon">🔧</span> Integration Tips</h2>
+
+            <h3>For Data Collection Systems:</h3>
+            <div class="tip-box">
+                <ol>
+                    <li>Use <span class="file-name">building_a_domains_detailed.csv</span> to build dropdown menus</li>
+                    <li>Store the "Option Code" in your database</li>
+                    <li>Display the "Option Name" to users</li>
+                    <li>Use "Domain Description" for field help text</li>
+                </ol>
+            </div>
+
+            <h3>For Data Validation:</h3>
+            <div class="tip-box">
+                <ol>
+                    <li>Check <span class="file-name">building_a_complete_metadata.csv</span> for field requirements</li>
+                    <li>Enforce pick list constraints where "Has Domain" = "Yes"</li>
+                    <li>Apply length limits from "length" column</li>
+                    <li>Validate required fields from "required" column</li>
+                </ol>
+            </div>
+
+            <h3>For User Training:</h3>
+            <div class="tip-box">
+                <ol>
+                    <li>Share the HTML manual for easy browsing</li>
+                    <li>Print domain descriptions for reference cards</li>
+                    <li>Use field aliases (display names) in your interface</li>
+                    <li>Explain the difference between display values and codes</li>
+                </ol>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2><span class="icon">📁</span> Support Files</h2>
+            <ul>
+                <li><strong>Validation Scripts</strong>: Test completeness and accuracy</li>
+                <li><strong>Generation Scripts</strong>: Recreate files from new XML exports</li>
+                <li><strong>WORKFLOW_NOTES.md</strong>: Technical details for developers</li>
+                <li><strong>FILE_SUMMARY.md</strong>: Complete file inventory</li>
+            </ul>
+        </section>
+
+        <div class="footer">
+            <p><em>Questions? The HTML manual is the most user-friendly starting point. All CSV files contain the same core data in different formats optimized for different use cases.</em></p>
+            <p><strong>📊 Total: 85 fields • 32 with domains • 740 total domain definitions</strong></p>
+        </div>
+    </div>
+</body>
+</html>

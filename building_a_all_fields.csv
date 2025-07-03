@@ -1,0 +1,86 @@
+Field Name,Field Alias,Field Type,Has Domain,Domain Name,Domain Type,Domain Description,Sample Values
+OBJECTID,OBJECTID,esriFieldTypeOID,No,,,,
+Shape,Shape,esriFieldTypeGeometry,No,,,,
+GlobalID,GlobalID,esriFieldTypeGlobalID,No,,,,
+addressNumber,Address Number,esriFieldTypeString,No,,,,
+addressNumberSuffix,Address Number Suffix,esriFieldTypeString,No,,,,
+alternateBuildingNumber,Alternate Building Number,esriFieldTypeString,No,,,,
+alternateFeatureDescription,Alternate Feature Description,esriFieldTypeString,No,,,,
+alternateFeatureName,Alternate Feature Name,esriFieldTypeString,No,,,,
+areaSize,Area Size,esriFieldTypeDouble,No,,,,
+areaSizeUom,Area Size UOM,esriFieldTypeString,Yes,GsipAreaUom,CodedValue,The area unit of measure mandated in DoD IT Standards Registry (DISR).,Acre (acre); Hectare (hectare); Square Centimeter (squareCentimeter); ... +10 more
+buildingAddress,Building Address,esriFieldTypeString,No,,,,
+buildingCondition,Building Condition,esriFieldTypeString,Yes,StructuralCondition,CodedValue,The structural condition and state of repair of a building or structure.,Boarded Up (boardedUp); Broken and Unusable (brokenNoUse); Burnt and Unusable (burntNoUse); ... +32 more
+buildingConditionIndex,Building Condition Index,esriFieldTypeInteger,Yes,SmsConditionIndex,Range,Condition value from zero to 100 computed after the inspection of the SMS feature. If there is no SMS condition value select -1 to represent Not Evaluated.,Range: -1 to 100
+buildingCustodialType,Building Custodial Type,esriFieldTypeString,Yes,CustodialType,CodedValue,"The type of custodian for the building: level 1 (prestige), level 2 (basic), etc.",Child Development Centers (childDevelopmentCenters); Fitness Centers (fitnessCenters); Level 1 and 2 (level1and2); ... +9 more
+buildingIdpk,Primary Key Identifier,esriFieldTypeString,No,,,,
+buildingNumber,Building Number,esriFieldTypeString,No,,,,
+buildingOpStatus,Building Op Status,esriFieldTypeString,Yes,OperationalStatus,CodedValue,The state of usability of the feature.,Abandoned (abandoned); Closed (closed); Damaged (damaged); ... +13 more
+builtDate,Built Date,esriFieldTypeString,No,,,,
+categoryCode,Category Code,esriFieldTypeString,No,,,,
+cityOrCommunityName,City or MSAG Community Name,esriFieldTypeString,No,,,,
+country,Country,esriFieldTypeString,Yes,CountryCode,CodedValue,The country that owns that specific feature.,Aruba (AW) (abw); Afghanistan (AF) (afg); Angola (AO) (ago); ... +271 more
+createDate,Create Date,esriFieldTypeDate,No,,,,
+creator,Creator,esriFieldTypeString,No,,,,
+dataCollection,Data Collection,esriFieldTypeString,Yes,CollectionMethod,CodedValue,"Describes how the data was acquired, created or generated.",Attribute Survey Only (attrOnly); CAD As Built (cadAsBuilt); CAD Design (cadDesign); ... +28 more
+dataSource,Data Source,esriFieldTypeString,No,,,,
+dataSteward,Data Steward,esriFieldTypeString,No,,,,
+dateEdited,Date Edited,esriFieldTypeDate,No,,,,
+editor,Editor,esriFieldTypeString,No,,,,
+elevation,Elevation,esriFieldTypeDouble,No,,,,
+elevationUom,Elevation Unit of Measure,esriFieldTypeString,Yes,GsipLengthUom,CodedValue,The length unit of measure mandated in DoD IT Standards Registry (DISR).,Astronomic Unit (astronomicUnit); Centimeter (centimetre); Data Mile (dataMile); ... +30 more
+facilityConditionCode,Facility Condition Code,esriFieldTypeString,Yes,FacilityConditionCode,CodedValue,The physical capability of a facility to accommodate the currently approved activity/function.,Usable Class A (1usableclassA); Usable Class B (2usableclassB); Forced Use (3forcedUse); ... +3 more
+facilityConditionIndex,Facility Condition Index,esriFieldTypeDouble,No,,,,
+facilityGrossSqFt,Facility Gross Sq Ft,esriFieldTypeDouble,No,,,,
+facilityGrossSqFtUom,Facility Gross Sq Ft UOM,esriFieldTypeString,Yes,GsipAreaUom,CodedValue,The area unit of measure mandated in DoD IT Standards Registry (DISR).,Acre (acre); Hectare (hectare); Square Centimeter (squareCentimeter); ... +10 more
+facilityNumber,Facility Number,esriFieldTypeString,No,,,,
+featureDescription,Feature Description,esriFieldTypeString,No,,,,
+featureName,Feature Name,esriFieldTypeString,No,,,,
+flexFieldDt,Flex Field Date Time,esriFieldTypeDate,No,,,,
+flexFieldInt,Flex Field Integer,esriFieldTypeInteger,No,,,,
+flexFieldRealNum,Flex Field Real Number,esriFieldTypeDouble,No,,,,
+flexFieldStr,Flex Field String,esriFieldTypeString,No,,,,
+flexFieldYn,Flex Field Boolean,esriFieldTypeString,Yes,sdsYesOrNo,CodedValue,An indication of a choice between yes or no.,Yes (yes); No (no); To Be Determined (tbd)
+geoloc,GEOLOC,esriFieldTypeString,No,,,,
+hasGiantVoice,Has Giant Voice,esriFieldTypeString,Yes,sdsYesOrNo,CodedValue,An indication of a choice between yes or no.,Yes (yes); No (no); To Be Determined (tbd)
+hasMassNotificationDevice,has Mass Notification Device,esriFieldTypeString,Yes,sdsYesOrNo,CodedValue,An indication of a choice between yes or no.,Yes (yes); No (no); To Be Determined (tbd)
+heightMax,Height Max,esriFieldTypeDouble,No,,,,
+heightMaxUom,Height Max Uom,esriFieldTypeString,Yes,GsipLengthUom,CodedValue,The length unit of measure mandated in DoD IT Standards Registry (DISR).,Astronomic Unit (astronomicUnit); Centimeter (centimetre); Data Mile (dataMile); ... +30 more
+installationId,Installation Identifier,esriFieldTypeString,Yes,InstallationId,CodedValue,Installation identifier assigned to the Installation by real property.,aawz - ACC AMIC (aawz); abaa - Abston ANGS (abaa); acjp - Los Angeles AFB (acjp); ... +319 more
+installationName,Installation Name,esriFieldTypeString,Yes,InstallationName,CodedValue,The name of the installation that is associated with the installation ID defined by Real Property.,Abe Lincoln Capital Airport AGS (abeLincolnCapitalArptAgs); Abston ANGS (abstonAngs); ACC AMIC (accAmic); ... +288 more
+isHeritageAsset,Is Heritage Asset,esriFieldTypeString,Yes,sdsYesOrNo,CodedValue,An indication of a choice between yes or no.,Yes (yes); No (no); To Be Determined (tbd)
+isRealProperty,Is Real Property,esriFieldTypeString,Yes,sdsYesOrNo,CodedValue,An indication of a choice between yes or no.,Yes (yes); No (no); To Be Determined (tbd)
+latitude,Latitude,esriFieldTypeDouble,No,,,,
+longitude,Longitude,esriFieldTypeDouble,No,,,,
+majorCommand,Major Command,esriFieldTypeString,Yes,MajorCommand,CodedValue,Service Major Command of the installation.,Air Combat Command (acc); Air Education and Training Command (aetc); Air Force District of Washington (afdw); ... +13 more
+mediaId,Media Identifier,esriFieldTypeString,No,,,,
+metaNotes,Meta Notes,esriFieldTypeString,No,,,,
+metadataId,Metadata Identifier,esriFieldTypeString,No,,,,
+mgrs,Military Grid Reference System,esriFieldTypeString,No,,,,
+missionDependencyIndex,Mission Dependency Index,esriFieldTypeInteger,Yes,SmsConditionIndex,Range,Condition value from zero to 100 computed after the inspection of the SMS feature. If there is no SMS condition value select -1 to represent Not Evaluated.,Range: -1 to 100
+narrative,Narrative,esriFieldTypeString,No,,,,
+owner,Owner,esriFieldTypeString,Yes,OwnerType,CodedValue,The DoD Component or other entity that owns the asset.,US Air Force Reserve (afr); Air National Guard (airNationalGuard); Army National Guard (armyNationalGuard); ... +23 more
+perimeterSize,Perimeter Size,esriFieldTypeDouble,No,,,,
+perimeterSizeUom,Perimeter Size UOM,esriFieldTypeString,Yes,GsipLengthUom,CodedValue,The length unit of measure mandated in DoD IT Standards Registry (DISR).,Astronomic Unit (astronomicUnit); Centimeter (centimetre); Data Mile (dataMile); ... +30 more
+releasePolicy,Release Policy,esriFieldTypeString,No,,,,
+roadName,Road Name,esriFieldTypeString,No,,,,
+roadPostDirectional,Road Post Directional,esriFieldTypeString,Yes,DirectionalIndicator,CodedValue,"The direction including both the four cardinal and four intercardinal, or ordinal, directions.",East (e); North (n); Northeast (ne); ... +6 more
+roadPrefixDirectional,Road Prefix Directional,esriFieldTypeString,Yes,DirectionalIndicator,CodedValue,"The direction including both the four cardinal and four intercardinal, or ordinal, directions.",East (e); North (n); Northeast (ne); ... +6 more
+roadSuffix,Road Suffix,esriFieldTypeString,No,,,,
+rpInterest,Real Property Interest,esriFieldTypeString,Yes,RpaInterestType,CodedValue,The type of legal interest that the DoD holds in the Real Property Asset (RPA).,"Easement (ease); U.S. Government-Owned Property,  DoD Accountability (fee); Government/Private Agreement (gvpv); ... +10 more"
+rpaConstructionType,RPA Construction Type,esriFieldTypeString,Yes,RpaConstructionTypeCode,CodedValue,The code used to identify the type of construction for the Real Property Asset (RPA).,Permanent Facility (perm); Relocatable (relo); Semi-permanent Facility (semi); ... +2 more
+rpaPredomCurrentUseCatCode,RPA Predominant Current Use CAT Code,esriFieldTypeString,No,,,,
+rpaType,Real Property Asset Type,esriFieldTypeString,Yes,RpaTypeCode,CodedValue,"A hierarchical scheme of real property types and functions that serves as the framework for identifying, categorizing and analyzing the DoD's inventory of land and facilities around the world. Real Property asset types are categorized as Land, Building, Structure, and Linear Structure, used to link assets to the Real Property APSR (AFI 32-9005 16 April 2019).",B (b); L (l); LS (ls); ... +1 more
+rpnid,Real Property Network Identifier,esriFieldTypeString,No,,,,
+rpsuid,Real Property Site Unique Identifier,esriFieldTypeInteger,Yes,Rpsuid,CodedValue,The real property site unique identifier.,1185 - Joint Base Charleston North Yard (1185); 1186 - Joint Base Charleston Engineering Support (1186); 1199 - Joint Base Charleston Rncfsu Det 3  (1199); ... +2073 more
+rpuid,Real Property Unique Identifier,esriFieldTypeString,No,,,,
+sdsId,Globally Unique Identifier,esriFieldTypeGUID,No,,,,
+siteId,Site ID,esriFieldTypeString,Yes,SiteId,CodedValue,The code assigned to the Site by the Service/WHS that has inventory control.,aawz0001 - ACC Amic Site #1 (aawz0001); abaa0001 - Abston ANG Station Site #1 (abaa0001); abqb0001 - Adana Water System Annex Site #1 (abqb0001); ... +2096 more
+stateName,State or Territory Name,esriFieldTypeString,Yes,StateOrTerritory,CodedValue,The abbreviation of all of the states and territories.,AA (aa); AE (ae); AK (ak); ... +65 more
+verticalDatumType,Vertical Datum Type,esriFieldTypeString,Yes,VerticalDatum,CodedValue,The type of vertical reference datum used to collect the z location values.,Adriatic Level (adriaticLevel); Average Low Water Plane (alwp); ALWRP (alwrp); ... +43 more
+visitorMapName,Visitor Map Name,esriFieldTypeString,Yes,VisitorMapType,CodedValue,The visitor map type.,Auto Skills Center (autoSkillsCenter); Bank (bank); Base Exchange (bx); ... +21 more
+wacInnrCode,WAC INNR Code,esriFieldTypeString,No,,,,
+zipCode,Zip Code,esriFieldTypeString,No,,,,
+zipCodePlusFour,Zip Code + 4,esriFieldTypeString,No,,,,
+Shape_Length,Shape_Length,esriFieldTypeDouble,No,,,,
+Shape_Area,Shape_Area,esriFieldTypeDouble,No,,,,
